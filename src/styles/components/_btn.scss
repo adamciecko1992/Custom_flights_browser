@@ -1,0 +1,36 @@
+.btn {
+    width: 15rem;
+    height: 8rem;
+    background-color: $color-secondary;
+    font-size: $font-normal;
+    border: none;
+    outline: none;
+    transition: all 0.2s;
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: $shadow;
+    }
+    &:active {
+        transform: translateY(1px);
+        box-shadow: none;
+    }
+    &--tiny {
+        width: 3rem;
+        height: 3rem;
+        font-size: 0.9rem;
+    }
+    &--small {
+        width: 7rem;
+        height: 4rem;
+    }
+    &--big {
+        width: 19rem;
+        height: 10rem;
+    }
+    &--round {
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+        font-size: 3rem;
+    }
+}

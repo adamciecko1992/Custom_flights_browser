@@ -1,0 +1,26 @@
+.nav {
+    width: 100%;
+    background-color: $color-white;
+    margin: 0 auto;
+    height: 3vh;
+    &__list {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        height: 100%;
+    }
+    &__item {
+        width: 7rem;
+        height: 80%;
+        @include flexCenter;
+        cursor: pointer;
+        transition: all .2s;
+        &:hover {
+            background-color: $color-primary-light;
+            color: $color-white;
+            border-radius: 6px;
+            transform: scale(1.1);
+        }
+    }
+}

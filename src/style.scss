@@ -1,0 +1,19 @@
+//Abstract
+@import "./styles/abstract/variables";
+@import "./styles/abstract/mixins";
+@import "./styles/abstract/utilClasses";
+//Components
+@import "./styles/components/box";
+@import "./styles/components/card";
+@import "./styles/components/btn";
+@import "./styles/components/dropdown";
+@import "./styles/components/input";
+//Base
+@import "./styles/base/base";
+@import "./styles/base/typography";
+//Layout
+@import "./styles/layout/footer";
+@import "./styles/layout/header";
+@import "./styles/layout/nav";
+//Pages
+@import "./styles/pages/home";

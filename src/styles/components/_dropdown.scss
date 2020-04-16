@@ -1,0 +1,17 @@
+.dropdown {
+    display: none;
+    background-color: $color-white;
+    width: 20rem;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    .dropdown__item {
+        width: 100%;
+        height: 3rem;
+        font-size: $font-normal;
+        background-color: $color-white;
+    }
+    &--active {
+        display: inline-block;
+        transform: scaleY(1)
+    }
+}

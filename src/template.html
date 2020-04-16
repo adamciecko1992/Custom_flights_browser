@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fly away - airlines</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;1,100;1,300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--  -->
+        <div class="box box--column">
+            <div class="box box--header">
+                <header class="header">
+                    <div class="header__logo"></div>
+
+                    <div class="header__login">
+                        <button class="btn btn--tiny poland"></button>
+                        <button class="btn btn--tiny england"></button>
+                        <button class="btn btn--small btn--round">
+              <i class="far fa-user"></i>
+            </button>
+                    </div>
+
+                </header>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item">Home</li>
+                        <li class="nav__item">Offers</li>
+                        <li class="nav__item">Services</li>
+                        <li class="nav__item">Partners</li>
+                        <li class="nav__item">Contact</li>
+                        <li class="nav__item">Links</li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!--  -->
+
+            <!--  -->
+            <h2 class="heading__primary heading__primary--hero">Fly with us</h2>
+            <h2 class="heading__secondary heading__secondary--hero">Wherever you want to go</h2>
+            <div class="box box--main">
+                <form action="submit" class="browser">
+                    <div class="browser__departure">
+                        <label for="departure">Odlot</label>
+                        <input type="text" class="input" id="departure" />
+                    </div>
+
+                    <div class="browser__arrival">
+                        <label for="arrival">Przylot</label>
+                        <input type="text" class="input" id="arrival" />
+                    </div>
+                    <div class="browser__date">
+                        <label for="date"><i class="far fa-calendar"></i>
+              <input type="text" class="input input--date" id="date" name="date" placeholder="Choose date" />
+            
+                    </div>
+                </form>
+                <form action="submit" class="browser2 hidden">
+                    <div class="browser2__choose">
+                        <label for="departure">One way
+              <input
+                type="radio"
+                class="input--radio"
+                id="choose"
+                name="oneWay"
+            /></label>
+                        <label for="departure">One way
+              <input
+                type="radio"
+                class="input--radio"
+                id="choose2"
+                name="oneWay"
+              />Two ways</label
+            >
+          </div>
+
+          <div class="browser__arrival">
+            <label for="arrival"></label>
+                        <input type="text" class="input" id="arrival" />
+                    </div>
+                    <input type="text" class="input--date" />
+                </form>
+            </div>
+        </div>
+        <!--  -->
+        <div class="box box--offers">
+            <section class="offers">
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </section>
+        </div>
+
+        <!--  -->
+        <div class="box">
+            <section class="services"></section>
+        </div>
+
+        <!--  -->
+        <div class="box">
+            <section class="partners"></section>
+        </div>
+
+        <!--  -->
+        <footer class="footer"></footer>
+    </div>
+</body>
+
+</html>

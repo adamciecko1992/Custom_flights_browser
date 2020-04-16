@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    height: 100%;
+    background-image: linear-gradient($color-primary-dark, $color-primary-light);
+    &__logo {
+        height: 100%;
+        width: 10%;
+        @include flexCenter;
+        margin-left: $margin-medium;
+        background-image: url("./img/logo.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &__login {
+        width: 15%;
+        display: flex;
+        justify-content: space-evenly;
+        .poland {
+            background-image: url("./img/211-poland.svg");
+            background-size: cover;
+            background-color: transparent;
+        }
+        .england {
+            background-image: url("./img/216-england.svg");
+            background-size: cover;
+            background-color: transparent;
+        }
+    }
+}
