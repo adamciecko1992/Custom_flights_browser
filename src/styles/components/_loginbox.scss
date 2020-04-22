@@ -1,0 +1,26 @@
+.loginbox {
+    position: fixed;
+    padding: 1rem;
+    left: 50%;
+    top: 10vh;
+    transform: translateX(-50%);
+    background-color: $color-white;
+    z-index: 10;
+    .iconbox {
+        font-size: 3rem;
+        margin-left: 95%;
+        cursor: pointer;
+        z-index: 3;
+    }
+    .title {
+        margin-top: $margin-big;
+        margin-bottom: $margin-medium;
+        text-align: center;
+    }
+    form {
+        align-items: center;
+        >*:not(label) {
+            margin-bottom: $margin-small;
+        }
+    }
+}

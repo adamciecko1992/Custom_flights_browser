@@ -16,11 +16,12 @@ html {
 }
 
 .wrapper {
-    height: 150vh;
     width: 100%;
-    background-color: lighten($color-grey-light, $amount: 50%)
+    background-color: lighten($color-grey-light, $amount: 50%);
+    position: relative;
 }
 
 body {
-    background-color: lighten($color-grey-light, $amount: 50%)
+    background-color: lighten($color-grey-light, $amount: 50%);
+    position: relative;
 }

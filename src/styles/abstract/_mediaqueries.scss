@@ -1,0 +1,6 @@
+@media only screen and(max-width:800px) {
+    .browser {
+        display: grid;
+        grid-template-columns: 1fr 1fr !important;
+    }
+}

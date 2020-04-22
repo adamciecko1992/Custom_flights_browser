@@ -6,6 +6,7 @@
     border: none;
     outline: none;
     transition: all 0.2s;
+    border-radius: 5px;
     &:hover {
         transform: translateY(-1px);
         box-shadow: $shadow;

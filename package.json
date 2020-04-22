@@ -6,7 +6,7 @@
     "scripts": {
         "build": "webpack --config webpack.prod.js",
         "build:dev": "webpack --config webpack.dev.js",
-        "start:dev": "webpack-dev-server --config webpack.dev.js --open"
+        "dev": "webpack-dev-server --config webpack.dev.js --open"
     },
     "keywords": [],
     "author": "",
@@ -16,6 +16,7 @@
         "acorn": "^7.1.1",
         "animate.css": "^3.7.2",
         "axios": "^0.19.2",
+        "bootstrap": "^4.4.1",
         "popper.js": "^1.16.0",
         "terser-webpack-plugin": "^2.3.2",
         "url-loader": "^4.0.0",

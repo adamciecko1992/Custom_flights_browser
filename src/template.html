@@ -10,22 +10,38 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <!--  -->
-        <div class="box box--column">
+    <!-- login Popup -->
+    <div class="loginbox box box--popup hidden" id="loginBox">
+        <div class="iconbox" id="closeLogin">
+            <i class="fas fa-times-circle closeLogin"></i>
+        </div>
+        <h1 class="heading__primary title">Log in</h1>
+        <form action="submit" class="box--form box--column">
+            <label class="text" for="email">User name</label>
+            <input type="text" class="input" id="logInUser">
+            <label class="text" for="password">Password</label>
+            <input type="password" class="input" id="logInPassword">
+            <button class=" btn" id="logInButton">Log in</button>
+            <p class="text">Not a member yet ? Sign up below</p>
+            <button class=" btn btn--small">Sign in</button>
+        </form>
+    </div>
+    <!-- login popup -->
+    <div class="wrapper" id="wrapper">
+        <div class="box box--colum box--hero">
             <div class="box box--header">
                 <header class="header">
                     <div class="header__logo"></div>
 
                     <div class="header__login">
-                        <button class="btn btn--tiny poland"></button>
-                        <button class="btn btn--tiny england"></button>
-                        <button class="btn btn--small btn--round">
-              <i class="far fa-user"></i>
-            </button>
+                        <button class="btn btn--tiny poland" id="btn_polishFlag"></button>
+                        <button class="btn btn--tiny england" id="btm_englishFlag"></button>
+                        <button class="btn btn--small" id="btn_signIn">
+                            Log in
+                        </button>
                     </div>
-
                 </header>
+
                 <nav class="nav">
                     <ul class="nav__list">
                         <li class="nav__item">Home</li>
@@ -43,48 +59,81 @@
             <!--  -->
             <h2 class="heading__primary heading__primary--hero">Fly with us</h2>
             <h2 class="heading__secondary heading__secondary--hero">Wherever you want to go</h2>
-            <div class="box box--main">
-                <form action="submit" class="browser">
-                    <div class="browser__departure">
+            <div class="box--browser">
+                <form action="submit" class="browser" id="formPrimary">
+                    <div class=" box--gridCell">
                         <label for="departure">Odlot</label>
-                        <input type="text" class="input" id="departure" />
+                        <input type="text" class="input" id="departure" value="Warsaw" />
                     </div>
 
-                    <div class="browser__arrival">
+                    <div class=" box--gridCell">
                         <label for="arrival">Przylot</label>
-                        <input type="text" class="input" id="arrival" />
+                        <select type="select" class="input" id="arrival" />
+                        <option value="Wroclaw">Wroclaw</option>
+                        <option value="London">London</option>
+                        <option value="New York">New York</option>
+                        </select>
                     </div>
-                    <div class="browser__date">
-                        <label for="date"><i class="far fa-calendar"></i>
-              <input type="text" class="input input--date" id="date" name="date" placeholder="Choose date" />
-            
-                    </div>
-                </form>
-                <form action="submit" class="browser2 hidden">
-                    <div class="browser2__choose">
-                        <label for="departure">One way
-              <input
-                type="radio"
-                class="input--radio"
-                id="choose"
-                name="oneWay"
-            /></label>
-                        <label for="departure">One way
-              <input
-                type="radio"
-                class="input--radio"
-                id="choose2"
-                name="oneWay"
-              />Two ways</label
-            >
-          </div>
+                    <div class=" box--gridCell">
+                        <p>Choose date</p>
+                        <i class="far fa-calendar"></i>
 
-          <div class="browser__arrival">
-            <label for="arrival"></label>
-                        <input type="text" class="input" id="arrival" />
+                        <select name="day" id="DateDay" class="input--date">
+                            <option value="1" >1</option>
+                        </select>
+                        <select name="month" id="DateMonth " class="input--date">
+                            <option value="jan">Jan</option>
+                        </select>
+                        <select name="month" id="DateYear" class="input--date">
+                            <option value="2020" >2020</option>
+                        </select>
+
                     </div>
-                    <input type="text" class="input--date" />
-                </form>
+
+
+
+                    <div class="box--gridCell">
+                        <label class="label--radio">One Way
+                            <input type="radio" class="input input--radio" value="oneWay" name="ways" checked id="oneWay"/>
+                        </label>
+                        <label class="label--radio">Two way
+                            <input type="radio" class="input input--radio" value="twoWays" name="ways"id="twoWays" />
+                        </label>
+                    </div>
+
+                    <div class=" box--gridCell">
+                        <p>Choose return date</p>
+                        <i class="far fa-calendar"></i>
+
+                        <select name="day" id="DateDay" class="input--date">
+                            <option value="1" >1</option>
+                        </select>
+                        <select name="month" id="DateMonth " class="input--date">
+                            <option value="jan">Jan</option>
+                        </select>
+                        <select name="month" id="DateYear" class="input--date">
+                            <option value="2020" >2020</option>
+                        </select>
+
+                    </div>
+                    <div class="box--gridCell">
+                        <label for="arrival">Ilość osób</label>
+                        <select type="select" class="input" id="personCount" />
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        </select>
+                    </div>
+                    <div class="buttonHolder box--gridCell hidden">
+                        <button class="btn" id="searchButton">Szukaj</button>
+                    </div>
+
             </div>
         </div>
         <!--  -->
@@ -111,6 +160,9 @@
         <!--  -->
         <footer class="footer"></footer>
     </div>
+
+
+    <footer class="box">FOOTER</footer>
 </body>
 
 </html>

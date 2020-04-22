@@ -1,0 +1,18 @@
+{
+    "flights": [{
+            "location": "Warsaw",
+            "destination": "Wroclaw",
+            "aircraft": "Bombardier"
+        },
+        {
+            "location": "Warsaw",
+            "destination": "London",
+            "aircraft": "Boeing 737"
+        },
+        {
+            "location": "Warsaw",
+            "destination": "New York",
+            "aircraft": "Boeing 747"
+        }
+    ]
+}

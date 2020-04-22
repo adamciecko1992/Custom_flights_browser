@@ -1,18 +1,28 @@
 .browser {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
     width: 100%;
     height: 100%;
     justify-content: space-evenly;
     align-items: center;
     padding: 2rem;
-    background-color: $color-white;
+    margin-top: $margin-medium;
     label {
         display: block;
+    }
+    .label--radio {
+        margin-top: 1rem;
+        margin-right: 2rem;
+        @include flexCenter;
+        justify-content: space-evenly;
+    }
+    .buttonHolder {
+        grid-column: 3/4;
     }
 }
 
 .offers {
-    width: 100%;
-    height: 100%;
+    @include fillParent;
     @include flexCenter;
 }

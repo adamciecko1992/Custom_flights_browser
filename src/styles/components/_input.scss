@@ -3,6 +3,25 @@
     border: none;
     border-bottom: 3px solid $color-primary;
     outline: none;
-    width: 30rem;
+    width: 60%;
     margin-top: $margin-small;
+    &--radio {
+        margin: 0 !important;
+        vertical-align: middle;
+        width: 10%;
+        flex: 1 0 33%;
+        vertical-align: middle;
+    }
+    &--disabled {
+        color: grey;
+        border-bottom: 3px solid grey;
+    }
+    &--date {
+        border-radius: 5px;
+        outline-color: $color-primary-light;
+        margin: 2rem 0.3rem;
+        &:focus {
+            outline-color: transparent;
+        }
+    }
 }
