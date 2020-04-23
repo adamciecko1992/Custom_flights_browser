@@ -1,4 +1,5 @@
 .heading {
+    padding: 2rem !important;
     &__primary {
         font-size: $font-big;
         &--hero {
@@ -23,6 +24,13 @@
 
 .text {
     font-size: $font-normal;
+    &--white {
+        color: white;
+    }
+    &--center {
+        text-align: center;
+        vertical-align: middle;
+    }
 }
 
 .nav__item {

@@ -1,9 +1,10 @@
+import { searchElements } from "./DOM.js"
+import { elementCreation, appendChildren } from "./utilities";
 const date = new Date()
 const day = date.getDate();
 const month = date.getMonth();
 const year = date.getFullYear();
-const monthWord = monthCalc(month);
-export const todayString = `${day} - ${monthWord} - ${year}`;
+
 
 function monthCalc(month) {
     let day;
@@ -72,3 +73,41 @@ function monthCalc(month) {
     }
     return day;
 }
+
+const monthWords = function() {
+    const wordsArr = [];
+    for (let i = 0; i <= 11; i++) {
+        let monthWord = monthCalc(i);
+        wordsArr.push(monthWord);
+
+    }
+    return wordsArr;
+}
+const daysCreation = () => {
+    const days = [];
+    for (let i = 1; i <= 31; i++) {
+
+
+        const number = i;
+        days.push(number);
+
+    }
+    return days;
+}
+const monthsArr = monthWords();
+const days = daysCreation();
+
+
+const optionsCreation = (parent, arr) => {
+    for (let el of arr) {
+        let option = elementCreation("option");
+        option.value = el;
+        option.textContent = el
+        parent.appendChild(option);
+    }
+}
+
+optionsCreation(searchElements.depDateMonth, monthsArr);
+optionsCreation(searchElements.retDateMonth, monthsArr);
+optionsCreation(searchElements.depDateDay, days)
+optionsCreation(searchElements.retDateDay, days)

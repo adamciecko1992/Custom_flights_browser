@@ -27,6 +27,7 @@
     &--column {
         display: flex;
         flex-direction: column;
+        justify-content: space-evenly;
     }
     &--offers {
         margin-top: 30vh !important;
@@ -45,5 +46,12 @@
         background-size: cover;
         background-position: left;
         height: 80vh;
+    }
+    &--window {
+        height: 80vh;
+        position: fixed;
+        z-index: 100;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }

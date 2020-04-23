@@ -33,8 +33,17 @@ export const getTransitionTime = (item) => {
     return computedTransition * 1000;
 };
 
-export const fetchData = async(url) => {
-    const data = await fetch(url);
-    const parsed = await data.json();
-    return parsed
+
+
+
+export async function fetchData(url) {
+    const response = await fetch(url, {});
+    const json = await response.json();
+    return json
 }
+// fetchData("data/user.json").then(data => {
+//     dator = data;
+// });
+// setTimeout(() => {
+//     console.log(dator);
+// }, 3000)

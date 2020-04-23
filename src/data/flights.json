@@ -2,16 +2,22 @@
     "flights": [{
             "location": "Warsaw",
             "destination": "Wroclaw",
+            "departureTime": "12:00",
+            "arrivallTime": "13:00",
             "aircraft": "Bombardier"
         },
         {
             "location": "Warsaw",
             "destination": "London",
-            "aircraft": "Boeing 737"
+            "aircraft": "Boeing 737",
+            "departureTime": "14:00",
+            "arrivallTime": "19:20"
         },
         {
             "location": "Warsaw",
             "destination": "New York",
+            "departureTime": "11:00",
+            "arrivallTime": "00:10",
             "aircraft": "Boeing 747"
         }
     ]

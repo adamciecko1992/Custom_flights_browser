@@ -21,12 +21,17 @@
             <input type="text" class="input" id="logInUser">
             <label class="text" for="password">Password</label>
             <input type="password" class="input" id="logInPassword">
-            <button class=" btn" id="logInButton">Log in</button>
+            <button class=" btn btn-warning" id="logInButton">Log in</button>
             <p class="text">Not a member yet ? Sign up below</p>
-            <button class=" btn btn--small">Sign in</button>
+            <button class=" btn btm-lg btn-warning">Sign in</button>
         </form>
     </div>
     <!-- login popup -->
+    <div class="box box--window hidden" id="renderRoot">
+
+    </div>
+    <!-- Widnow popUp parent -->
+
     <div class="wrapper" id="wrapper">
         <div class="box box--colum box--hero">
             <div class="box box--header">
@@ -60,10 +65,10 @@
             <h2 class="heading__primary heading__primary--hero">Fly with us</h2>
             <h2 class="heading__secondary heading__secondary--hero">Wherever you want to go</h2>
             <div class="box--browser">
-                <form action="submit" class="browser" id="formPrimary">
+                <form action="submit form-controll" class="browser" id="formPrimary">
                     <div class=" box--gridCell">
                         <label for="departure">Odlot</label>
-                        <input type="text" class="input" id="departure" value="Warsaw" />
+                        <input type="text" class="input form-controll" id="departure" value="Warsaw" />
                     </div>
 
                     <div class=" box--gridCell">
@@ -77,17 +82,12 @@
                     <div class=" box--gridCell">
                         <p>Choose date</p>
                         <i class="far fa-calendar"></i>
-
-                        <select name="day" id="DateDay" class="input--date">
-                            <option value="1" >1</option>
+                        <select name="day" id="dateDay" class="input--date"><!-- date.js --></select>
+                        <select name="month" id="dateMonth" class="input--date"><!-- date.js --></select>
+                        <select name="year" id="dateYear" class="input--date">
+                             <option value="2020">2020</option>
+                            <option value="2021">2021</option>
                         </select>
-                        <select name="month" id="DateMonth " class="input--date">
-                            <option value="jan">Jan</option>
-                        </select>
-                        <select name="month" id="DateYear" class="input--date">
-                            <option value="2020" >2020</option>
-                        </select>
-
                     </div>
 
 
@@ -104,18 +104,15 @@
                     <div class=" box--gridCell">
                         <p>Choose return date</p>
                         <i class="far fa-calendar"></i>
-
-                        <select name="day" id="DateDay" class="input--date">
-                            <option value="1" >1</option>
+                        <select name="day" id="retDateDay" class="input--date"><!-- date.js --></select>
+                        <select name="month" id="retDateMonth" class="input--date"><!-- date.js --></select>
+                        <select name="year" id="retDateYear" class="input--date">
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
                         </select>
-                        <select name="month" id="DateMonth " class="input--date">
-                            <option value="jan">Jan</option>
-                        </select>
-                        <select name="month" id="DateYear" class="input--date">
-                            <option value="2020" >2020</option>
-                        </select>
-
                     </div>
+
+
                     <div class="box--gridCell">
                         <label for="arrival">Ilość osób</label>
                         <select type="select" class="input" id="personCount" />
@@ -130,7 +127,7 @@
                         <option value="9">9</option>
                         </select>
                     </div>
-                    <div class="buttonHolder box--gridCell hidden">
+                    <div class="buttonHolder box--gridCell">
                         <button class="btn" id="searchButton">Szukaj</button>
                     </div>
 
@@ -162,7 +159,7 @@
     </div>
 
 
-    <footer class="box">FOOTER</footer>
+    <footer class="container">FOOTER</footer>
 </body>
 
 </html>

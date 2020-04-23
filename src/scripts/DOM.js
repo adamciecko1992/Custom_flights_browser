@@ -13,6 +13,7 @@ export const elements = {
     logInUser: document.getElementById("logInUser"),
     logInButton: document.getElementById("logInButton"),
     logInPassword: document.getElementById("logInPassword"),
+    renderRoot: document.getElementById("renderRoot")
 }
 
 export const searchElements = {
@@ -20,8 +21,11 @@ export const searchElements = {
     departurePort: document.getElementById("departure"),
     arrivalPort: document.getElementById("arrival"),
     depDateDay: document.getElementById("dateDay"),
-    depDateMonth: document.getElementById("dateMonth"),
+    depDateMonth: document.querySelector("#dateMonth"),
     depDateYear: document.getElementById("dateYear"),
+    retDateDay: document.getElementById("retDateDay"),
+    retDateMonth: document.getElementById("retDateMonth"),
+    retDateYear: document.getElementById("retDateYear"),
     formSecondary: document.getElementById("formSecondary"),
     returnDate: document.getElementById("returnDate"),
     oneway: document.getElementById("oneWay"),
