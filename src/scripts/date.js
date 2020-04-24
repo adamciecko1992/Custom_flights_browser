@@ -1,5 +1,5 @@
 import { searchElements } from "./DOM.js"
-import { elementCreation, appendChildren } from "./utilities";
+import { elementCreation, appendChildren, optionsCreation } from "./utilities";
 const date = new Date()
 const day = date.getDate();
 const month = date.getMonth();
@@ -98,14 +98,7 @@ const monthsArr = monthWords();
 const days = daysCreation();
 
 
-const optionsCreation = (parent, arr) => {
-    for (let el of arr) {
-        let option = elementCreation("option");
-        option.value = el;
-        option.textContent = el
-        parent.appendChild(option);
-    }
-}
+
 
 optionsCreation(searchElements.depDateMonth, monthsArr);
 optionsCreation(searchElements.retDateMonth, monthsArr);

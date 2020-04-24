@@ -13,7 +13,6 @@
     }
     &--browser {
         width: 90%;
-        height: 45rem;
         margin: 10vh auto;
         background-color: $color-white;
         box-shadow: $shadow;
@@ -27,7 +26,6 @@
     &--column {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
     }
     &--offers {
         margin-top: 30vh !important;

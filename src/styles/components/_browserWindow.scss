@@ -1,6 +1,11 @@
 .browserWindow {
     @include fillParent;
     text-align: center;
+    .cross__wrapper {
+        font-size: 3rem;
+        width: fit-content;
+        margin-left: 95%;
+    }
     .iconbox {
         text-align: right;
         padding-top: 2rem;
@@ -9,11 +14,6 @@
         @include flexCenter;
         justify-content: flex-end;
     }
-    .cross__wrapper {
-        font-size: 3rem;
-        width: fit-content;
-        margin-left: 95%;
-    }
     &__heading {
         color: $color-white;
         padding: 2rem;
@@ -21,7 +21,7 @@
     }
     &__sub {
         width: 80%;
-        height: 30%;
+        height: 40%;
         margin: 2rem auto;
         background-color: $color-grey-light;
         overflow-y: scroll;
@@ -29,7 +29,7 @@
             display: flex;
             background-color: $color-primary-light;
             width: 100%;
-            height: 33.3%;
+            height: 25%;
             &:not(last-child) {
                 border-bottom: $color-white 1px solid;
             }

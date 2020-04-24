@@ -33,6 +33,14 @@ export const getTransitionTime = (item) => {
     return computedTransition * 1000;
 };
 
+export const optionsCreation = (parent, arr) => {
+    for (let el of arr) {
+        let option = elementCreation("option");
+        option.value = el;
+        option.textContent = el
+        parent.appendChild(option);
+    }
+}
 
 
 

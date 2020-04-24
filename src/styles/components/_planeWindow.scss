@@ -1,0 +1,31 @@
+.planeWindow {
+    @include fillParent;
+    padding: 4rem;
+    background-color: $color-white;
+    .subWindow {
+        display: block;
+    }
+    .cross__wrapper {
+        font-size: 3rem;
+        width: fit-content;
+        margin-left: 95%;
+        color: $color-primary-light;
+    }
+    &__heading {
+        text-align: center;
+        width: 100%;
+    }
+    .plane__wrapper {
+        width: 100%;
+        transform: rotate(90deg);
+        height: 60rem;
+        svg {
+            width: 80rem;
+            margin-left: $margin-big;
+        }
+    }
+}
+
+.seat {
+    fill: $color-tertiary;
+}
