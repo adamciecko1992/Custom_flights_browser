@@ -2,6 +2,9 @@ import { fetchData, elementCreation, appendChildren } from "./utilities"
 import { elements, searchElements } from "./DOM";
 import { Flight } from "./flights";
 
+
+
+
 let allFlights = [];
 
 

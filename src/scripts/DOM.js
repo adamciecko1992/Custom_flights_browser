@@ -3,7 +3,7 @@ export const elements = {
     polish: document.getElementById("btn_polishFlag"),
     english: document.getElementById("btn_englishFlag"),
     signIn: document.getElementById("btn_signIn"),
-    loginBox: document.getElementById("loginBox"),
+    loginBox: document.getElementById("loginBox_Root"),
     departureInput: document.getElementById("departure"),
     arrivalInput: document.getElementById("arrival"),
     date: document.getElementById("date"),
