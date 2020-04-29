@@ -72,37 +72,6 @@ class LogIn_View {
     }
 }
 
-// export class LogInWindow {
-//     constructor() {
-//         new LogIn_Controller(new LogIn_Model, new LogIn_View);
-//     }
-// }
+
 
 new LogIn_Controller(new LogIn_Model, new LogIn_View);
-
-
-
-// elements.signIn.addEventListener("click", LogIn.view.hideAndShow);
-
-
-// elements.closeLogin.addEventListener("click", (e) => {
-//     elements.loginBox.classList.add("hidden");
-//     elements.wrapper.style.filter = "blur(0px)";
-//     console.log(e);
-// })
-
-// elements.logInButton.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     const inputUser = elements.logInUser.value;
-//     const inputPassword = elements.logInPassword.value;
-//     const fetched = fetchData("/data/user.json");
-//     fetched.then(data => {
-//         for (let user of data.users) {
-//             if (user.user === inputUser && user.password === inputPassword) {
-//                 elements.loginBox.classList.toggle("hidden");
-//                 elements.wrapper.style.filter = "blur(0px)";
-//                 logIn();
-//             }
-//         }
-//     })
-// })

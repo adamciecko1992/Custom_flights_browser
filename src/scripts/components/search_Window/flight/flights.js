@@ -1,6 +1,6 @@
-import { elementCreation, appendChildren } from "./utilities"
-import { SummaryWindow } from "./summaryWindow";
-import { elements } from "./DOM";
+import { elementCreation, appendChildren } from "../../../utilities/utilities"
+import { SummaryWindow } from "../../luggage_window/luggageWindow";
+import { elements } from "../../../utilities/DOM";
 
 
 export class Flight {

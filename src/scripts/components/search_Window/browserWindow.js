@@ -1,6 +1,6 @@
-import { fetchData, elementCreation, appendChildren } from "./utilities"
-import { elements, searchElements } from "./DOM";
-import { Flight } from "./flights";
+import { fetchData, elementCreation, appendChildren } from "../../utilities/utilities"
+import { elements, searchElements } from "../../utilities/DOM";
+import { Flight } from "./flight/flights";
 
 
 

@@ -1,6 +1,6 @@
-import { elements } from "./DOM"
-import { bombardierSvg, boeing_737, boeing_747 } from "./planeSvg"
-import { elementCreation, appendChildren, optionsCreation } from "./utilities";
+import { elements } from "../../utilities/DOM"
+import { bombardierSvg, boeing_737, boeing_747 } from "../flight/assets/planeSvg"
+import { elementCreation, appendChildren, optionsCreation } from "../../utilities/utilities";
 
 export class PlaneWindow {
     constructor(flight, personCount) {

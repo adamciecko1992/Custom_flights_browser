@@ -1,6 +1,6 @@
-import { elements } from "./DOM"
-import { elementCreation, appendChildren, optionsCreation } from "./utilities";
-import { PlaneWindow } from "./seatsReservation";
+import { elements } from "../../utilities/DOM"
+import { elementCreation, appendChildren, optionsCreation } from "../../utilities/utilities";
+import { PlaneWindow } from "../seats_reservation_window/seatsReservation";
 
 
 export class SummaryWindow {
