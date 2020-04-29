@@ -1,0 +1,71 @@
+<h2 class="heading__primary heading__primary--hero">Fly with us</h2>
+<h2 class="heading__secondary heading__secondary--hero">Wherever you want to go</h2>
+<div class="box--browser">
+    <form action="submit form-controll" class="browser" id="formPrimary">
+        <div class=" box--gridCell">
+            <label for="departure">Odlot</label>
+            <input type="text" class="input form-controll" id="departure" value="Warsaw" />
+        </div>
+
+        <div class=" box--gridCell">
+            <label for="arrival">Przylot</label>
+            <select type="select" class="input" id="arrival" />
+            <option value="Wroclaw">Wroclaw</option>
+            <option value="London">London</option>
+            <option value="New York">New York</option>
+            </select>
+        </div>
+        <div class=" box--gridCell">
+            <p>Choose date</p>
+            <i class="far fa-calendar"></i>
+            <select name="day" id="dateDay" class="input--date"><!-- date.js --></select>
+            <select name="month" id="dateMonth" class="input--date"><!-- date.js --></select>
+            <select name="year" id="dateYear" class="input--date">
+                             <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                        </select>
+        </div>
+
+
+
+        <div class="box--gridCell">
+            <label class="label--radio">One Way
+                            <input type="radio" class="input input--radio" value="oneWay" name="ways" checked id="oneWay"/>
+                        </label>
+            <label class="label--radio">Two way
+                            <input type="radio" class="input input--radio" value="twoWays" name="ways"id="twoWays" />
+                        </label>
+        </div>
+
+        <div class=" box--gridCell">
+            <p>Choose return date</p>
+            <i class="far fa-calendar"></i>
+            <select name="day" id="retDateDay" class="input--date"><!-- date.js --></select>
+            <select name="month" id="retDateMonth" class="input--date"><!-- date.js --></select>
+            <select name="year" id="retDateYear" class="input--date">
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                        </select>
+        </div>
+
+
+        <div class="box--gridCell">
+            <label for="arrival">Ilość osób</label>
+            <select type="select" class="input" id="personCount" />
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            </select>
+        </div>
+        <div class="buttonHolder box--gridCell">
+            <button class="btn" id="searchButton">Szukaj</button>
+        </div>
+
+</div>
+</div>

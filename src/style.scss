@@ -3,23 +3,15 @@
 @import "./styles/abstract/mixins";
 @import "./styles/abstract/utilClasses";
 @import "./styles/abstract/mediaqueries";
-//Components
+//global styles components
 @import "./styles/components/box";
 @import "./styles/components/card";
 @import "./styles/components/btn";
 @import "./styles/components/dropdown";
 @import "./styles/components/input";
-@import "./styles/components/loginbox";
-@import "./styles/components/calendar";
-@import "./styles/components/browserWindow";
-@import "./styles/components/summaryWindow";
-@import "./styles/components/planeWindow";
+//components
+@import "./components/header/header";
+@import "./components/login_Window/loginWindow";
 //Base
 @import "./styles/base/base";
 @import "./styles/base/typography";
-//Layout
-@import "./styles/layout/footer";
-@import "./styles/layout/header";
-@import "./styles/layout/nav";
-//Pages
-@import "./styles/pages/home";
