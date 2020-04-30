@@ -11,18 +11,6 @@
         margin-top: 0;
         height: 14vh;
     }
-    &--browser {
-        width: 90%;
-        margin: 10vh auto;
-        background-color: $color-white;
-        box-shadow: $shadow;
-    }
-    &--gridCell {
-        @include fillParent;
-        padding: 2rem;
-        height: 4rem;
-        min-height: 10rem;
-    }
     &--column {
         display: flex;
         flex-direction: column;

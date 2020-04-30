@@ -2,23 +2,9 @@
     padding: 2rem !important;
     &__primary {
         font-size: $font-big;
-        &--hero {
-            color: $color-white;
-            font-size: 13rem;
-            margin-top: $margin-small;
-            margin-left: $margin-small;
-        }
     }
     &__secondary {
         font-size: $font-medium;
-        &--hero {
-            font-size: 7rem;
-            color: $color-white;
-            font-weight: 100;
-            font-style: italic;
-            font-family: Lato, sans-serif;
-            margin-left: $margin-big;
-        }
     }
 }
 

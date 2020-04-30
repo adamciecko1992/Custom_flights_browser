@@ -1,13 +1,13 @@
-import template from "./navigation.html";
+import template from "./hero.html";
 
 
-class Nav_model {
+class Hero_model {
     constructor() {
         //maybe some caurosell data someday or img loading ?
     }
 }
 
-class Nav_controller {
+class Hero_controller {
     constructor(model, view, root_element) {
         this.model = model;
         this.view = view;
@@ -15,18 +15,18 @@ class Nav_controller {
     }
 }
 
-class Nav_view {
+class Hero_view {
     constructor(target) {
         this.markup = document.createRange().createContextualFragment(template);
-        this.box = this.markup.querySelector("#nav");
+        this.box = this.markup.querySelector("#hero");
     }
     appendMarkup(target) {
         target.appendChild(this.markup);
     }
 }
 
-export class Nav {
+export class Hero {
     constructor(root_element) {
-        this.controller = new Nav_controller(new Nav_model(), new Nav_view(), root_element)
+        this.controller = new Hero_controller(new Hero_model(), new Hero_view(), root_element)
     }
 }

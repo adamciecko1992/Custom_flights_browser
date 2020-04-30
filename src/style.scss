@@ -11,7 +11,11 @@
 @import "./styles/components/input";
 //components
 @import "./components/header/header";
+@import "./components/navigation/nav";
 @import "./components/login_Window/loginWindow";
+@import "./components/hero/hero";
+@import "./components/browser_form/browserForm";
+// @import "./components/browser_form/browserForm";
 //Base
 @import "./styles/base/base";
 @import "./styles/base/typography";

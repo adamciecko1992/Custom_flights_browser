@@ -16,7 +16,8 @@ html {
 }
 
 .wrapper {
-    width: 100%;
+    width: 90%;
+    margin: $margin-small auto 0 auto;
     background-color: lighten($color-grey-light, $amount: 50%);
     position: relative;
 }
