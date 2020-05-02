@@ -15,7 +15,10 @@
 @import "./components/login_Window/loginWindow";
 @import "./components/hero/hero";
 @import "./components/browser_form/browserForm";
-// @import "./components/browser_form/browserForm";
+@import "./components//reservationWindow/reservationWindow";
+@import "./components/reservationWindow/flights_Window/flightsWindow";
+@import "./components/reservationWindow/flights_Window/flight/flight.scss";
+@import "./components/reservationWindow/luggage_window/luggageWindow";
 //Base
 @import "./styles/base/base";
 @import "./styles/base/typography";

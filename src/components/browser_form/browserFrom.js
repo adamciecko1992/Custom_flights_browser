@@ -1,67 +1,57 @@
 import template from "./browserForm.html";
-import { fetchData } from "../../scripts/utilities/utilities";
+import { optionsCreation } from "../../services/optionsCreation/optionsCreation";
+import { convertMonth } from "../../services/convertMonth/convertMonth";
 
-let allFlights = [];
-
-
-// searchElements.searchButton.addEventListener("click", async(e) => {
-//     e.preventDefault();
-//     await fetchData("data/flights.json").then((flights) => {
-//         for (let flight of flights.flights) {
-//             allFlights.push(flight);
-//         }
-//     });
-
-//     const formData = {
-//         flights: allFlights,
-//         depDateDay: searchElements.depDateDay.value,
-//         depDateMonth: searchElements.depDateMonth.value,
-//         depDateYear: searchElements.depDateYear.value,
-//         departure: searchElements.departurePort.value,
-//         arrival: searchElements.arrivalPort.value,
-//         oneway: searchElements.oneway.checked,
-//         twoways: searchElements.twoWays.checked,
-//         person: searchElements.personCount.value,
-//         retDate: searchElements.retDateDay.value,
-//     }
-//     elements.renderRoot.classList.toggle("hidden");
-//     elements.renderRoot.innerHTML = "";
-//     elements.wrapper.style.filter = "blur(4px)";
-//     const flightsWindow = new BrowserWindow(formData);
-//     flightsWindow.renderToTarget(elements.renderRoot);
-
-// })
 
 class BrowserForm_model {
     constructor() {
-        this.flights = [];
-        this.searchData = {};
-        this.getFlights();
-        console.log(this.flights);
+        this.date = {};
+        this.getDateObj();
     }
-    async getFlights() {
-        await fetchData("../../data/flights.json").then((flights) => {
-            for (let flight of flights.flights) {
-                this.flights.push(flight);
-            }
-        });
+
+    calculateDays() {
+        let days;
+        const months31 = ["Jan", "Mar", "May", "Jul", "Aug", "Oct", "Dec"];
+        const months30 = ["Apr", "Jun", "Sep", "Nov"];
+        const feb = ((this.date.year % 4) && (this.date.year % 100) || !(this.date.year % 400)) ? 28 : 29;
+        if (months31.includes(this.date.month)) {
+            days = 31;
+        } else if (months30.includes(this.date.month)) {
+            days = 30;
+        } else {
+            days = feb;
+        }
+        return days;
     }
-    updateData(prop, key) {
-        this.searchData[prop] = key;
+    getDateObj() {
+        const date = new Date()
+        this.date.day = date.getDate();
+        this.date.month = convertMonth(date.getMonth());
+        this.date.year = date.getFullYear();
+        this.date.days = this.calculateDays();
     }
 }
+
 
 class BrowserForm_controller {
     constructor(model, view, root_element) {
         this.model = model;
         this.view = view;
-        this.view.bind_searchClick(this.searchHandler);
+        this.view.bind_searchClick(this.searchHandler.bind(this));
+        this.view.bind_monthChanged(this.monthChangeHandler.bind(this));
         this.view.appendMarkup(root_element);
-
+        this.view.fillDataFiled(this.model.date);
     }
-    searchHandler() {
-
+    searchHandler(formData) {
+        window.eventBus.dispatchEvent("search_triggered", formData);
     }
+    monthChangeHandler(month) {
+        this.model.date.month = month;
+        this.model.date.days = this.model.calculateDays();
+        this.view.fillDataFiled(this.model.date);
+    }
+
+
 }
 
 class BrowserForm_view {
@@ -81,10 +71,11 @@ class BrowserForm_view {
         this.twoWays = this.markup.getElementById("twoWays")
         this.personCount = this.markup.getElementById("personCount")
         this.searhButton = this.markup.querySelector("#searchButton")
-        console.log(this.depDateDay);
     }
-    appendMarkup(target) {
-        target.appendChild(this.markup);
+    bind_monthChanged(handler) {
+        this.depDateMonth.addEventListener("input", () => {
+            handler(this.depDateMonth.value);
+        })
     }
     bind_searchClick(handler) {
         this.searhButton.addEventListener("click", (e) => {
@@ -102,8 +93,24 @@ class BrowserForm_view {
                 twoWays: this.twoWays.checked,
                 personCount: this.personCount.value
             }
-            console.log(formData);
+            handler(formData);
         })
+    }
+    fillDataFiled(dateObj) {
+        this.depDateDay.innerHTML = "";
+        this.depDateDay.value = dateObj.day;
+        this.depDateMonth.value = dateObj.month;
+        this.depDateYear.value = dateObj.year;
+        optionsCreation(this.depDateDay, dateObj.days);
+        const dayOptions = this.depDateDay.childNodes;
+        for (let option of dayOptions) {
+            if (parseInt(option.textContent) === dateObj.day) {
+                option.selected = true;
+            }
+        }
+    }
+    appendMarkup(target) {
+        target.appendChild(this.markup);
     }
 }
 

@@ -6,6 +6,20 @@ class Header_model {
         //maybe some languages support
     }
 }
+
+class Header_controller {
+    constructor(model, view, root_element) {
+        this.model = model;
+        this.view = view;
+
+        this.view.appendMarkup(root_element)
+        this.view.bind_logIn(this.logIn);
+    }
+    logIn() {
+        window.eventBus.dispatchEvent("log_in_fired");
+    }
+}
+
 class Header_view {
     constructor(parent) {
         this.markup = document.createRange().createContextualFragment(template);
@@ -23,19 +37,7 @@ class Header_view {
     }
 
 }
-class Header_controller {
-    constructor(model, view, root_element) {
-        this.model = model;
-        this.view = view;
 
-        this.view.appendMarkup(root_element)
-        this.view.bind_logIn(this.logIn);
-    }
-    logIn() {
-        window.eventBus.dispatchEvent("log_in_fired");
-    }
-
-}
 
 export class Header {
     constructor(root_element) {

@@ -1,6 +1,5 @@
 import template from "./loginWindow.html";
-
-import { fetchData } from "../../scripts/utilities/utilities";
+import { fetchData } from "../../services/fetchData/fetchData";
 
 
 
