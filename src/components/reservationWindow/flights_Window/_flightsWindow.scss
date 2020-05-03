@@ -5,19 +5,6 @@
     flex-direction: column;
     text-align: center;
     background-color: $color-white;
-    .cross__wrapper {
-        font-size: 3rem;
-        width: fit-content;
-        margin-left: 95%;
-    }
-    .iconbox {
-        text-align: right;
-        padding-top: 2rem;
-        padding-right: 2rem;
-        font-size: 3rem;
-        @include flexCenter;
-        justify-content: flex-end;
-    }
     &__heading {
         color: $color-black;
         padding: 2rem;
@@ -26,9 +13,8 @@
     &__sub {
         width: 80%;
         height: 40%;
-        border: red 1px solid;
         margin: 2rem auto;
-        background-color: $color-white;
+        background-image: linear-gradient($color-grey-dark, $color-grey-light);
         overflow-y: scroll;
     }
 }

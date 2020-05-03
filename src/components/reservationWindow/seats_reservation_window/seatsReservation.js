@@ -1,120 +1,178 @@
-import { elements } from "../../utilities/DOM"
-import { bombardierSvg, boeing_737, boeing_747 } from "../flight/assets/planeSvg"
-import { elementCreation, appendChildren, optionsCreation } from "../../utilities/utilities";
+import { bombardier_Svg, boeing_747_Svg, boeing_737_Svg } from "./assets/aircraftSvg";
+import template from "./seatsReservationWindow.html";
+import { eventBus } from "../../../scripts/app";
 
-export class PlaneWindow {
-    constructor(flight, personCount) {
-        this.personCount = personCount;
-        this.flight = flight;
-        this.planeImg = this.getMatchedImg(this.flight.aircraft);
-
-        this.seats = [];
-        this.content = this.createContent(this.planeImg);
-
-
+//SOME MAJOR CHANGES TO DISPLAYING PERSON COUNT ON SEATS CLICK NEEDED !!!!
+class SeatsReservation_model {
+    constructor(flightData) {
+        this.flightData = flightData
+        this.svg = this.getMatchedImg(flightData.aircraft);
+        this.seatsRows = {};
+        this.chosenSeats = [];
     }
-    getSeatsList(aircraft) {
-        const paths = document.getElementsByTagName("path");
-        const pathsArr = [...paths];
-        let seatsList;
+    getMatchedImg(aircraft) {
+        let svgPlane;
         switch (aircraft) {
             case "Bombardier":
+                svgPlane = bombardier_Svg
+                break;
+            case "Boeing_737":
+                svgPlane = boeing_737_Svg;
+                break;
+            case "Boeing_747":
+                svgPlane = boeing_747_Svg;
+        }
+        return svgPlane
+    }
+    sortSeatsByRow(seats) {
+        let seatsArr = [...seats]
+        seatsArr.forEach((seat, index, arr) => {
+            const svgNum = seat.attributes[0].value.slice(1, 4)
+            if (!this.seatsRows[svgNum]) {
+                this.seatsRows[svgNum] = []
+                this.seatsRows[svgNum].push(seat);
+                const seatNum = arr.indexOf(seat);
+                arr.splice(seatNum, 1);
+            } else {
+                this.seatsRows[svgNum].push(seat);
+                const seatNum = arr.indexOf(seat);
+                arr.splice(seatNum, 1);
+            }
+        })
+        if (seatsArr.length > 0) {
+            this.sortSeatsByRow(seatsArr);
+        }
+    }
+    addNumberToSeats() {
+        const seats = Object.values(this.seatsRows);
+        const rows = Object.keys(this.seatsRows)
+        const result = [];
+        for (let i = 0; i < rows.length; i++) {
+            for (let j = 0; j < seats[i].length; j++) {
+                seats[i].sort();
+                seats[i][j].id = `row${i+1}_number${j+1}`;
+            }
+            result.push([seats[i]]);
+        }
+
+
+    }
+}
+
+class SeatsReservation_controller {
+    constructor(model, view, root_element) {
+        this.model = model;
+        this.view = view;
+        this.view.showPlane(this.model.svg);
+        this.view.getSeatsList(this.model.flightData.aircraft);
+        this.model.sortSeatsByRow(this.view.seats);
+        this.model.addNumberToSeats();
+        this.view.bind_seatClick(this.handleSeatClick.bind(this), this.handleSeatRemove.bind(this), this.model.flightData.persons);
+        this.view.bind_confirmClick(this.handleConfirmClick.bind(this));
+        this.view.appendMarkup(root_element);
+    }
+    handleSeatClick(clickedSeatNumber, currentPerson) {
+        this.model.chosenSeats.push(`Preson:${currentPerson} seat:${clickedSeatNumber}`);
+
+    }
+    handleSeatRemove(removedSeatNumber, currentPerson) {
+        const seatIndex = this.model.chosenSeats.indexOf(`Preson:${currentPerson} seat:${removedSeatNumber}`);
+        this.model.chosenSeats.splice(seatIndex, 1);
+    }
+    handleConfirmClick() {
+        if (this.model.chosenSeats.length === parseInt(this.model.flightData.persons)) {
+            this.model.flightData.chosenSeats = this.model.chosenSeats;
+            window.eventBus.dispatchEvent("seats_chosen", this.model.flightData);
+        } else {
+            alert(`Not all passangers had chosen their seats`);
+        }
+    }
+}
+
+class SeatsReservation_view {
+    constructor() {
+        this.markup = document.createRange().createContextualFragment(template);
+        this.box = this.markup.querySelector("#seatsReservationWindow");
+        this.svgRoot = this.markup.querySelector("#svgRoot");
+        this.currentPerson = this.markup.querySelector("#currentPerson");
+        this.confirmSeatsBtn = this.markup.querySelector("#confirmSeatsBtn");
+        this.currentPerson.innerHTML = "Person 1";
+        this.seats = [];
+    }
+    hide() {
+        this.box.style.display = "none";
+    }
+    showPlane(plane) {
+        this.svgRoot.innerHTML = plane;
+    }
+    getSeatsList(aircraftSvg) {
+        const paths = this.markup.querySelectorAll("path");
+        const pathsArr = [...paths];
+        switch (aircraftSvg) {
+            case "Bombardier":
                 pathsArr.shift();
-                pathsArr.shift();
-                pathsArr.splice(60, 8);
-                seatsList = pathsArr;
+                pathsArr.splice(60, 5);
+                pathsArr.pop();
+                this.seats = pathsArr;
                 break
             case "Boeing_737":
-                pathsArr.splice(0, 5);
+                pathsArr.splice(0, 4);
                 pathsArr.splice(186, 2);
-                seatsList = pathsArr;
+                pathsArr.pop();
+                this.seats = pathsArr;
                 break
             case "Boeing_747":
-                pathsArr.splice(0, 5);
+                pathsArr.splice(0, 4);
                 pathsArr.splice(279, 2);
-                console.log(pathsArr);
+                pathsArr.splice(-3, 3);
 
-                seatsList = pathsArr;
+                this.seats = pathsArr;
                 break
         }
-        return seatsList;
-    }
-    updateSeats() {
-        this.seats = this.getSeatsList(this.flight.aircraft);
-        this.addSeatFunctionality(this.seats);
-    }
-    addSeatFunctionality(seats) {
-        let availableSeats = this.personCount
-        for (let seat of seats) {
 
-            seat.addEventListener("click", () => {
-                if (availableSeats > 0) {
-                    seat.classList.add("seat");
-                    availableSeats--;
+    }
+    bind_seatClick(handleChoose, handleRemove, personCount) {
+        let availableSeats = personCount;
+        let currentPerson = 1;
+        for (let seat of this.seats) {
+            seat.addEventListener("click", (event) => {
+                if (event.target.classList.contains("active")) {
+                    event.target.classList.remove("active");
+                    availableSeats++
+                    currentPerson--
+                    this.currentPerson.innerHTML = `Person ${currentPerson}`;
+                    handleRemove(event.target.id, currentPerson + 1);
                 } else {
-                    alert("no more seats");
+                    if (availableSeats > 0) {
+                        seat.classList.toggle("active");
+                        availableSeats--;
+                        currentPerson++;
+                        this.currentPerson.innerHTML = `Person ${currentPerson}`;
+                        if (availableSeats === 0) {
+                            this.currentPerson.innerHTML = `done`;
+                        }
+                        handleChoose(event.target.id, currentPerson - 1);
+                    } else {
+                        alert("No more seats")
+                    }
                 }
             })
         }
     }
 
-
-
-
-    getMatchedImg(aircraft) {
-        let svgPlane;
-        switch (aircraft) {
-            case "Bombardier":
-                svgPlane = bombardierSvg;
-
-                break;
-            case "Boeing_737":
-                svgPlane = boeing_737;
-                break;
-            case "Boeing_747":
-                svgPlane = boeing_747;
-        }
-        return svgPlane
-    }
-    createContent(imgSvg) {
-        const window = elementCreation('div', 'planeWindow');
-        //exit icon
-        const cross__wrapper = elementCreation("div", "cross__wrapper")
-        const cross = elementCreation("i", "fa-times-circle", "fas")
-        cross__wrapper.addEventListener("click", () => {
-            elements.renderRoot.removeChild(this.content);
-            elements.renderRoot.classList.toggle("hidden");
-            elements.wrapper.style.filter = "blur(0px)";
+    bind_confirmClick(handler) {
+        this.confirmSeatsBtn.addEventListener("click", () => {
+            handler();
         })
-        appendChildren(cross__wrapper, cross);
-        //heading
-
-        const widnow__heading = elementCreation("h2", "heading__secondary", "planeWindow__heading")
-        widnow__heading.textContent = "Choose your sits";
-        ////////////////////////////////////////////////////////////////////////////////// Subwindow
-        const subWindow = elementCreation("div", "subWindow");
-        ///////////////////////////////////////////////////////////////////////////// First Box
-        const firstBox = () => {
-            const planeSvg = elementCreation('div', "plane__wrapper");
-            planeSvg.innerHTML = imgSvg;
-            return planeSvg;
-        }
-        const secondBox = () => {
-            const seatsButton = elementCreation("button", "btn", "u-block", "u-m-t-3");
-            seatsButton.textContent = "Confirm";
-            return seatsButton;
-        }
-        appendChildren(subWindow, firstBox(), secondBox());
-        appendChildren(window, cross__wrapper, widnow__heading, subWindow);
-        return window;
     }
+    appendMarkup(target) {
+        target.appendChild(this.markup);
+    }
+}
 
 
-    renderToTarget(target) {
-        target.classList.remove("animated", "fadeOut");
-        target.innerHTML = "";
-        target.appendChild(this.content);
-        target.classList.add("animated", "fadeIn");
-        this.updateSeats();
+export class SeatsReservation {
+    constructor(root_element, flightData) {
+        this.controller = new SeatsReservation_controller(new SeatsReservation_model(flightData), new SeatsReservation_view(), root_element)
     }
 }

@@ -48,16 +48,7 @@ class FlightsWindow_view {
         this.markup = document.createRange().createContextualFragment(template);
         this.box = this.markup.querySelector("#flightsWindow");
         this.flightsBox = this.markup.querySelector("#flightsRoot");
-        this.quitIcon = this.markup.querySelector("#quitIcon");
-        this.closeWindow();
         this.appendMarkup(this.parent);
-    }
-
-    closeWindow() {
-        this.quitIcon.addEventListener("click", (e) => {
-            this.parent.removeChild(this.box);
-            this.parent.classList.toggle("hidden");
-        })
     }
     createFlights(matchedFlights, searchData) {
         for (let flight of matchedFlights) {
@@ -68,11 +59,10 @@ class FlightsWindow_view {
         this.box.style.display = "none";
     }
     show() {
-        this.box.classList.remove("slideOutLeft");
-        this.box.classList.add("slideInLeft");
+        this.box.style.display = "block"
     }
     appendMarkup(target) {
-        target.appendChild(this.markup);
+        target.appendChild(this.box);
     }
 }
 

@@ -80,6 +80,8 @@ class BrowserForm_view {
     bind_searchClick(handler) {
         this.searhButton.addEventListener("click", (e) => {
             e.preventDefault();
+
+            // if (sessionStorage.loggedIn === "true") {
             const formData = {
                 departurePort: this.departurePort.value,
                 arrivalPort: this.arrivalPort.value,
@@ -94,6 +96,9 @@ class BrowserForm_view {
                 personCount: this.personCount.value
             }
             handler(formData);
+            // } else {
+            //     alert("You have to be logged in to begin reservation process");
+            // }
         })
     }
     fillDataFiled(dateObj) {

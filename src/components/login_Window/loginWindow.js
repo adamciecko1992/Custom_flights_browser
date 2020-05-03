@@ -15,6 +15,16 @@ class LogIn_model {
     setData(data) {
         this.data = data;
     }
+    startLogOutTimer() {
+        window.addEventListener("onmousemove", () => {
+            console.log("move");
+        })
+        const timer = setTimeout(() => {
+            sessionStorage.loggedIn = false;
+            console.log(sessionStorage);
+            alert("Your session has ended");
+        }, 100)
+    }
 }
 
 class LogIn_controller {
@@ -23,10 +33,14 @@ class LogIn_controller {
         this.view = view;
         this.users = model.data;
         this.logIn = async(name, password) => {
+
             await this.model.getData();
             const users = this.model.data.users;
             for (let user of users) {
                 if (user.user === name && user.password === password) {
+                    sessionStorage.setItem("loggedIn", true);
+                    alert(`Welcome ${user.user}`)
+                    this.model.startLogOutTimer();
                     this.view.hideAndShow();
                 }
             }

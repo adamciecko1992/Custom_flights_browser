@@ -4,28 +4,21 @@
     background-color: $color-white;
     .subWindow {
         display: block;
-    }
-    .cross__wrapper {
-        font-size: 3rem;
-        width: fit-content;
-        margin-left: 95%;
-        color: $color-primary-light;
+        @include fillParent;
     }
     &__heading {
         text-align: center;
         width: 100%;
     }
     .plane__wrapper {
-        width: 100%;
-        transform: rotate(90deg);
-        height: 60rem;
+        position: relative;
         svg {
-            width: 80rem;
-            margin-left: $margin-big;
+            width: 100%;
         }
     }
 }
 
-.seat {
-    fill: $color-tertiary;
+.active {
+    transition: all .2s;
+    fill: $color-primary-light;
 }

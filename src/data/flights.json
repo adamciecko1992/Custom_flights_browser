@@ -4,7 +4,12 @@
             "destination": "Wroclaw",
             "departureTime": "12:00",
             "arrivalTime": "13:00",
-            "aircraft": "Bombardier"
+            "aircraft": "Bombardier",
+            "price": {
+                "economic": "20$",
+                "buisness": "40$",
+                "premium": "100$"
+            }
         },
         {
             "location": "Warsaw",

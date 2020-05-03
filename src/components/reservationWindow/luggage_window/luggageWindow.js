@@ -7,6 +7,8 @@ import { appendChildren } from "../../../services/appendChildren/appendChildren"
 class LuggageWindow_model {
     constructor(flightData) {
         this.flightData = flightData;
+        this.flightData.luggageSelections = [];
+        this.flightData.airfareSelections = [];
         this.persons = flightData.persons;
         this.luggageTypes = ["small", "medium", "big"];
         this.airfareTypes = ["economic", "buisnes", "premium"];
@@ -18,14 +20,25 @@ class LuggageWindow_controller {
         this.parent = root_element;
         this.model = model;
         this.view = view;
-        this.handleQuit = () => {
-            this.parent.removeChild(this.view.box);
-            this.parent.classList.toggle("hidden");
+
+        this.handleReservationBtn = () => {
+            this.collectLuggageAndAirfare();
+            eventBus.dispatchEvent("reservationBtn_clicked", this.model.flightData);
         }
         this.view.createChoiceBoxes(this.view.airfareOptionsRoot, this.model.persons, this.model.airfareTypes);
         this.view.createChoiceBoxes(this.view.luggageOptionsRoot, this.model.persons, this.model.luggageTypes);
-        this.view.bind_closeWindow(this.handleQuit);
+
+        this.view.bind_reservationButtonClicked(this.handleReservationBtn);
         this.view.appendMarkup(root_element);
+    }
+    collectLuggageAndAirfare() {
+        this.view.luggageSelections.forEach((luggageSelection) => {
+            this.model.flightData.luggageSelections.push({ person: luggageSelection.person.innerText, luggage: luggageSelection.luggage.value })
+        })
+        this.view.airfareSelections.forEach((airfareSelection) => {
+            this.model.flightData.airfareSelections.push({ person: airfareSelection.person.innerText, airfare: airfareSelection.airfare.value })
+        })
+
     }
 
 }
@@ -34,23 +47,31 @@ class LuggageWindow_view {
     constructor() {
         this.markup = document.createRange().createContextualFragment(template);
         this.box = this.markup.querySelector("#luggageWindow");
-        this.quitIcon = this.markup.querySelector("#quitIcon");
+        this.seatsReservationButton = this.markup.querySelector("#seatsReservationButton");
         this.luggageOptionsRoot = this.markup.querySelector("#personsLuggageRoot");
-        this.airfareOptionsRoot = this.markup.querySelector("#personsAirfareRoot")
+        this.airfareOptionsRoot = this.markup.querySelector("#personsAirfareRoot");
+        this.luggageSelections = [];
+        this.airfareSelections = [];
+    }
+    hide() {
+        this.box.style.display = "none";
     }
     appendMarkup(root_element) {
         root_element.appendChild(this.box);
     }
-    bind_closeWindow(handler) {
-        this.quitIcon.addEventListener("click", () => {
-            handler();
+
+    bind_reservationButtonClicked(handler) {
+        this.seatsReservationButton.addEventListener("click", () => {
+            handler()
         })
     }
+
 
     createChoiceBoxes(parent, num, optionsArr) {
         for (let i = 1; i <= num; i++) {
             const optionBox = elementCreation("div");
             const optionSelect = elementCreation("select");
+            optionSelect.id = `Person ${i}`;
             for (let i = 0; i < optionsArr.length; i++) {
                 const option = elementCreation("option", "text");
                 option.innerText = optionsArr[i];
@@ -61,7 +82,21 @@ class LuggageWindow_view {
             label.innerText = `Person ${i}`;
             appendChildren(optionBox, label, optionSelect);
             parent.appendChild(optionBox);
+            if (optionsArr.indexOf("small") !== -1) {
+                this.luggageSelections.push({
+                    person: label,
+                    luggage: optionSelect
+                });
+
+            } else {
+                this.airfareSelections.push({
+                    person: label,
+                    airfare: optionSelect
+                });
+
+            }
         }
+
     }
 }
 

@@ -17,6 +17,12 @@
         margin-bottom: $margin-medium;
         text-align: center;
     }
+    .logInForm {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        background-color: $color-white;
+    }
     form {
         align-items: center;
         >*:not(label) {
