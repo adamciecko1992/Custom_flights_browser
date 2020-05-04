@@ -5,7 +5,7 @@ import { LogInWindow } from "../components/login_Window/loginWindow"
 import { Hero } from "../components/hero/hero";
 import { BrowserForm } from "../components/browser_form/browserFrom";
 import { ReservationWindow } from "../components/reservationWindow/reservationWindow";
-import { PersonalData } from "../components/reservationWindow/personalData_Window/personalData";
+
 
 
 
@@ -36,7 +36,6 @@ class app {
         this.heroRoot = this.page.querySelector("#heroRoot");
         this.browserRoot = this.page.querySelector("#browserRoot");
         this.reservationWindowRoot = this.page.querySelector("#reservationWindowRoot");
-        this.PersonalDataRoot = this.page.querySelector("#personalRoot");
         this.appRoot = document.getElementById("app");
         wrapper = this.wrapper;
 

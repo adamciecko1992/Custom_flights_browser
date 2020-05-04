@@ -6,11 +6,6 @@
     box-shadow: $shadow;
     display: block;
     background-color: $color-grey;
-    &--header {
-        @include fillParent;
-        margin-top: 0;
-        height: 14vh;
-    }
     &--offers {
         margin-top: 30vh !important;
     }

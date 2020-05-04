@@ -50,7 +50,7 @@ class SeatsReservation_model {
         for (let i = 0; i < rows.length; i++) {
             for (let j = 0; j < seats[i].length; j++) {
                 seats[i].sort();
-                seats[i][j].id = `row${i+1}_number${j+1}`;
+                seats[i][j].id = `Row_${i+1}_Number_${j+1}`;
             }
             result.push([seats[i]]);
         }
@@ -72,17 +72,20 @@ class SeatsReservation_controller {
         this.view.appendMarkup(root_element);
     }
     handleSeatClick(clickedSeatNumber, currentPerson) {
-        this.model.chosenSeats.push(`Preson:${currentPerson} seat:${clickedSeatNumber}`);
+        this.model.chosenSeats.push({ Person: `${currentPerson}`, seat: `${clickedSeatNumber}` });
+
 
     }
     handleSeatRemove(removedSeatNumber, currentPerson) {
-        const seatIndex = this.model.chosenSeats.indexOf(`Preson:${currentPerson} seat:${removedSeatNumber}`);
+        const seatIndex = this.model.chosenSeats.indexOf({ Preson: `${currentPerson}`, seat: `${removedSeatNumber}` });
         this.model.chosenSeats.splice(seatIndex, 1);
+
     }
     handleConfirmClick() {
         if (this.model.chosenSeats.length === parseInt(this.model.flightData.persons)) {
             this.model.flightData.chosenSeats = this.model.chosenSeats;
             window.eventBus.dispatchEvent("seats_chosen", this.model.flightData);
+
         } else {
             alert(`Not all passangers had chosen their seats`);
         }

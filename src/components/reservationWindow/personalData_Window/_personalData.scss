@@ -1,20 +1,8 @@
 .personalData_window {
     width: 100%;
-    font-size: $font-normal;
+    font-size: $font-small;
+    color: $color-grey-dark;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
-    .formBox {
-        width: 45%;
-        height: 100%;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        background-color: $color-white;
-        box-shadow: $shadow;
-        .form {
-            >* {
-                margin: 5px;
-            }
-        }
-    }
 }

@@ -2,28 +2,63 @@
     background-image: url("./img/hero.jpg");
     background-size: cover;
     background-position: left;
-    height: 80vh;
-    width: 100;
+    height: 50vh;
+    width: 100%;
     .heading {
-        padding: 2rem !important;
         &__primary {
-            font-size: $font-big;
-            &--hero {
-                color: $color-white;
-                font-size: 13rem;
-                margin-left: $margin-small;
-            }
+            font-size: 12rem;
+            color: $color-white;
+            margin-left: $margin-small;
         }
         &__secondary {
-            font-size: $font-medium;
-            &--hero {
-                font-size: 7rem;
+            font-size: 8rem;
+            color: $color-white;
+            font-weight: 100;
+            font-style: italic;
+            font-family: Lato, sans-serif;
+            margin-left: $margin-big;
+        }
+    }
+}
+
+@media only screen and (max-width:930px) {
+    .hero {
+        height: 30vh;
+        .heading {
+            padding: 1rem !important;
+            &__primary {
+                font-size: 10rem;
+                color: $color-white;
+                margin-left: $margin-small;
+            }
+            &__secondary {
+                font-size: 6rem;
                 color: $color-white;
                 font-weight: 100;
                 font-style: italic;
                 font-family: Lato, sans-serif;
-                margin-left: $margin-big;
+                margin-left: $margin-small;
             }
+        }
+    }
+}
+
+@media only screen and (max-width:380px) {
+    .hero {
+        height: 30vh;
+        .heading__primary {
+            padding: 1rem !important;
+            font-size: 8rem;
+            color: $color-white;
+            margin-left: $margin-small;
+        }
+        .heading__secondary {
+            font-size: 5rem;
+            color: $color-white;
+            font-weight: 100;
+            font-style: italic;
+            font-family: Lato, sans-serif;
+            margin-left: $margin-small;
         }
     }
 }

@@ -7,17 +7,29 @@
     z-index: 100;
     left: 50%;
     transform: translateX(-50%);
+    overflow: scroll;
     .subwindow {
         margin-top: 10%;
         height: 90%;
         width: 100%;
         background-color: $color-white;
-        border: $color-grey-dark 1px solid;
     }
     .cross__wrapper {
-        position: absolute;
+        position: fixed;
         right: 2rem;
         top: 2rem;
         font-size: 2.5rem;
+    }
+}
+
+@media only screen and (max-width:930px) {
+    .window {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:380px) {
+    .window {
+        width: 100%;
     }
 }

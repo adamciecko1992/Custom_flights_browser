@@ -16,14 +16,32 @@ html {
 }
 
 .wrapper {
-    width: 98%;
-    // height: 300vh;
+    width: 90%;
     margin: $margin-small auto 0 auto;
-    background-color: lighten($color-grey-light, $amount: 50%);
     position: relative;
 }
 
 body {
     background-color: $color-grey-light;
     position: relative;
+}
+
+@media only screen and (max-width:930px) {
+    .wrapper {
+        width: 100vw;
+        margin: 0;
+    }
+     :root {
+        font-size: 50%;
+    }
+}
+
+@media only screen and (max-width:380px) {
+    .wrapper {
+        width: 100vw;
+        margin: 0;
+    }
+     :root {
+        font-size: 45%;
+    }
 }

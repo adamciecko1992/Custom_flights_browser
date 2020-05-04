@@ -81,29 +81,28 @@ class BrowserForm_view {
         this.searhButton.addEventListener("click", (e) => {
             e.preventDefault();
 
-            // if (sessionStorage.loggedIn === "true") {
-            const formData = {
-                departurePort: this.departurePort.value,
-                arrivalPort: this.arrivalPort.value,
-                depDateDay: this.depDateDay.value,
-                depDateMonth: this.depDateMonth.value,
-                depDateYear: this.depDateYear.value,
-                retDateDay: this.retDateDay.value,
-                retDateMonth: this.retDateMonth.value,
-                retDateYear: this.retDateYear.value,
-                oneway: this.oneway.checked,
-                twoWays: this.twoWays.checked,
-                personCount: this.personCount.value
+            if (sessionStorage.loggedIn === "true") {
+                const formData = {
+                    departurePort: this.departurePort.value,
+                    arrivalPort: this.arrivalPort.value,
+                    depDateDay: this.depDateDay.value,
+                    depDateMonth: this.depDateMonth.value,
+                    depDateYear: this.depDateYear.value,
+                    // retDateDay: this.retDateDay.value,
+                    // retDateMonth: this.retDateMonth.value,
+                    // retDateYear: this.retDateYear.value,
+                    // oneway: this.oneway.checked,
+                    // twoWays: this.twoWays.checked,
+                    personCount: this.personCount.value
+                }
+                handler(formData);
+            } else {
+                alert("You have to be logged in to begin reservation process");
             }
-            handler(formData);
-            // } else {
-            //     alert("You have to be logged in to begin reservation process");
-            // }
         })
     }
     fillDataFiled(dateObj) {
         this.depDateDay.innerHTML = "";
-        this.depDateDay.value = dateObj.day;
         this.depDateMonth.value = dateObj.month;
         this.depDateYear.value = dateObj.year;
         optionsCreation(this.depDateDay, dateObj.days);

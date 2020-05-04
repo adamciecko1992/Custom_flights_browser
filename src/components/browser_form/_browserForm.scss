@@ -2,7 +2,9 @@
     width: 90%;
     background-color: $color-white;
     box-shadow: $shadow;
-    margin: -40vh auto;
+    margin-top: -20vh;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .browser {
@@ -24,6 +26,9 @@
     }
     .buttonHolder {
         grid-column: 3/4;
+        display: flex;
+        justify-content: flex-end;
+        border: none;
     }
 }
 
@@ -38,4 +43,27 @@
     height: 4rem;
     min-height: 10rem;
     border: 1px solid $color-grey-light;
+}
+
+@media only screen and (max-width:930px) {
+    .browserBox {
+        width: 100%;
+        margin-top: 0;
+        *>:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+    .gridCell {
+        @include fillParent;
+        padding: 3.5rem;
+        border: none;
+        box-shadow: 0 1px 10px rgba($color: #000000, $alpha: 0.1)
+    }
+    .browser {
+        display: flex;
+        flex-direction: column;
+    }
+    .buttonHolder {
+        box-shadow: none;
+    }
 }

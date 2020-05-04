@@ -11,7 +11,6 @@ class Header_controller {
     constructor(model, view, root_element) {
         this.model = model;
         this.view = view;
-
         this.view.appendMarkup(root_element)
         this.view.bind_logIn(this.logIn);
     }
@@ -25,6 +24,7 @@ class Header_view {
         this.markup = document.createRange().createContextualFragment(template);
         this.btn_logIn = this.markup.querySelector("#btn_LogIn")
         this.btn_logIn = this.markup.querySelector("#btn_LogIn")
+
 
     }
     appendMarkup(target) {
