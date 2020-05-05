@@ -1,10 +1,13 @@
+require("@babel/polyfill");
 // var HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require("path"); //path jest modulem node.js wiec eni trezba go instalowac
 const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
     // devtool: "none", //zwieksza czytelnosc kodu w main.js
     entry: {
-        main: "./src/index.js",
+        main: ["./src/index.js",
+            "@babel/polyfill"
+        ]
     }, //stad bedzie brany kod zrodlowy
     devServer: {
         contentBase: path.join(__dirname, "dist"),
