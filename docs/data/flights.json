@@ -1,0 +1,43 @@
+{
+    "flights": [{
+            "location": "Warsaw",
+            "destination": "Wroclaw",
+            "departureTime": "12:00",
+            "arrivalTime": "13:00",
+            "aircraft": "Bombardier",
+            "price": {
+                "economic": "20$",
+                "buisness": "40$",
+                "premium": "100$"
+            }
+        },
+        {
+            "location": "Warsaw",
+            "destination": "Wroclaw",
+            "departureTime": "01:00",
+            "arrivalTime": "02:00",
+            "aircraft": "Bombardier"
+        },
+        {
+            "location": "Warsaw",
+            "destination": "Wroclaw",
+            "departureTime": "19:00",
+            "arrivalTime": "20:00",
+            "aircraft": "Bombardier"
+        },
+        {
+            "location": "Warsaw",
+            "destination": "London",
+            "aircraft": "Boeing_737",
+            "departureTime": "14:00",
+            "arrivalTime": "19:20"
+        },
+        {
+            "location": "Warsaw",
+            "destination": "New York",
+            "departureTime": "11:00",
+            "arrivalTime": "00:10",
+            "aircraft": "Boeing_747"
+        }
+    ]
+}
