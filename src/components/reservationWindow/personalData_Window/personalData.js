@@ -38,8 +38,16 @@ class PersonalData_view {
             new PersonForm(this.box, [Object.keys(personsObj)[i], Object.values(personsObj)[i]]);
         }
     }
-    appendMarkup(target) {
-        target.appendChild(this.box);
+    hide() {
+        this.box.classList.remove("slideInRight", "delay-1s");
+        this.box.classList.add("animated", "slideOutLeft");
+        setTimeout(() => {
+            this.box.style.display = "none";
+        }, 1000)
+    }
+    appendMarkup(root_element) {
+        root_element.appendChild(this.box);
+        this.box.classList.add("animated", "slideInRight", "delay-1s");
     }
 }
 

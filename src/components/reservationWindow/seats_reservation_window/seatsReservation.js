@@ -102,9 +102,6 @@ class SeatsReservation_view {
         this.currentPerson.innerHTML = "Person 1";
         this.seats = [];
     }
-    hide() {
-        this.box.style.display = "none";
-    }
     showPlane(plane) {
         this.svgRoot.innerHTML = plane;
     }
@@ -168,8 +165,16 @@ class SeatsReservation_view {
             handler();
         })
     }
-    appendMarkup(target) {
-        target.appendChild(this.markup);
+    hide() {
+        this.box.classList.remove("slideInRight", "delay-1s");
+        this.box.classList.add("animated", "slideOutLeft");
+        setTimeout(() => {
+            this.box.style.display = "none";
+        }, 1000)
+    }
+    appendMarkup(root_element) {
+        root_element.appendChild(this.box);
+        this.box.classList.add("animated", "slideInRight", "delay-1s");
     }
 }
 

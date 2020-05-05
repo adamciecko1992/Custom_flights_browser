@@ -1,12 +1,12 @@
 <div id="browserBox" class="browserBox">
     <form action="submit form-controll" class="browser" id="formPrimary">
         <div class="gridCell">
-            <label for="departure">Odlot</label>
+            <label for="departure">Departure</label>
             <input type="text" class="input form-controll" id="departure" value="Warsaw" />
         </div>
 
         <div class="gridCell">
-            <label for="arrival">Przylot</label>
+            <label for="arrival">Arrival</label>
             <select type="select" class="input" id="arrival" />
             <option value="Wroclaw">Wroclaw</option>
             <option value="London">London</option>
@@ -14,9 +14,11 @@
             </select>
         </div>
         <div class="gridCell">
-            <p>Choose date</p>
+            <label>Choose date</label>
             <i class="far fa-calendar"></i>
-            <select type="text" name="day" id="dateDay" class="input--date"></select>
+            <select type="text" name="day" id="dateDay" class="input--date">
+
+            </select>
             <select name="month" id="dateMonth" class="input--date">
                 <option value="Jan">Jan</option>
                 <option value="Feb">Feb</option>
@@ -61,7 +63,7 @@
 
 
         <div class="gridCell">
-            <label for="arrival">Ilość osób</label>
+            <label for="arrival">Persons</label>
             <select type="select" class="input" id="personCount" />
             <option value="1">1</option>
             <option value="2">2</option>

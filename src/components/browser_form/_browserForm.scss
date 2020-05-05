@@ -1,8 +1,9 @@
 .browserBox {
     width: 90%;
+    min-height: 30rem;
     background-color: $color-white;
     box-shadow: $shadow;
-    margin-top: -20vh;
+    margin-top: -20rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -17,6 +18,7 @@
     padding: 2rem;
     label {
         display: block;
+        color: $color-grey-dark;
     }
     .label--radio {
         margin-top: 1rem;
@@ -47,7 +49,8 @@
 
 @media only screen and (max-width:930px) {
     .browserBox {
-        width: 100%;
+        width: 90%;
+        box-shadow: none;
         margin-top: 0;
         *>:not(:last-child) {
             margin-bottom: 1rem;
@@ -65,5 +68,6 @@
     }
     .buttonHolder {
         box-shadow: none;
+        background-color: transparent;
     }
 }

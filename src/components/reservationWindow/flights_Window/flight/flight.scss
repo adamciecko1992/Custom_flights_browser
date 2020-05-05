@@ -1,18 +1,46 @@
 .flight {
     display: flex;
-    background-color: $color-primary-light;
     width: 100%;
-    height: 25%;
+    height: 10rem;
+    margin: 0 auto;
     border-bottom: $color-white 1px solid;
-    color: $color-white;
+    border-radius: 10px;
+    font-style: italic;
+    cursor: pointer;
+    &:not(:last-child) {
+        margin-bottom: 5px;
+    }
+    >* {
+        border: 1px solid $color-grey-light;
+    }
     .icon__wrapper {
-        width: 20%;
+        width: 10%;
         height: 100%;
         padding: 2rem;
         font-size: 2rem;
+        @include flexCenter;
     }
     .cell {
         @include flexCenter;
-        width: 15%;
+        position: relative;
+        width: 18%;
+        .arrow {
+            position: absolute;
+            z-index: 2;
+            right: -1rem;
+            font-size: 2rem;
+            vertical-align: middle;
+        }
     }
 }
+
+@media only screen and (max-width:930px) {
+    .flight {
+        width: 100%;
+    }
+    .cell {
+        width: 20%;
+    }
+}
+
+@media only screen and (max-width:380px) {}

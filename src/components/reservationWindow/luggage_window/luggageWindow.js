@@ -54,10 +54,15 @@ class LuggageWindow_view {
         this.airfareSelections = [];
     }
     hide() {
-        this.box.style.display = "none";
+        this.box.classList.remove("slideInRight", "delay-1s");
+        this.box.classList.add("animated", "slideOutLeft");
+        setTimeout(() => {
+            this.box.style.display = "none";
+        }, 1000)
     }
     appendMarkup(root_element) {
         root_element.appendChild(this.box);
+        this.box.classList.add("animated", "slideInRight", "delay-1s");
     }
 
     bind_reservationButtonClicked(handler) {

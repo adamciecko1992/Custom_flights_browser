@@ -1,20 +1,24 @@
 .flightsWindow {
     @include fillParent;
-    height: 100%;
-    display: flex;
+    @include flexCenter;
+    height: 80%;
     flex-direction: column;
     text-align: center;
     background-color: $color-white;
-    &__heading {
-        color: $color-black;
-        padding: 2rem;
-        font-size: 4rem !important;
-    }
     &__sub {
-        width: 80%;
-        height: 40%;
-        margin: 2rem auto;
-        background-image: linear-gradient($color-grey-dark, $color-grey-light);
-        overflow-y: scroll;
+        width: 100%;
+        margin: auto;
+        background-color: $color-white;
     }
 }
+
+@media only screen and (max-width:930px) {
+    .flightsWindow {
+        width: 100%;
+        &__sub {
+            margin: auto;
+        }
+    }
+}
+
+@media only screen and (max-width:380px) {}

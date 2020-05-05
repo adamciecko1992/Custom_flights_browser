@@ -56,7 +56,10 @@ class FlightsWindow_view {
         }
     }
     hide() {
-        this.box.style.display = "none";
+        this.box.classList.add("animated", "slideOutLeft");
+        setTimeout(() => {
+            this.box.style.display = "none";
+        }, 1000)
     }
     show() {
         this.box.style.display = "block"
@@ -71,58 +74,3 @@ export class FlightsWindow {
         this.controller = new FlightsWindow_controller(new FlightsWindow_model(data), new FlightsWindow_view(root_element))
     }
 }
-
-
-
-
-
-
-//     elements.renderRoot.classList.toggle("hidden");
-//     elements.renderRoot.innerHTML = "";
-//     elements.wrapper.style.filter = "blur(4px)";
-//     const flightsWindow = new BrowserWindow(formData);
-//     flightsWindow.renderToTarget(elements.renderRoot);
-
-// })
-
-
-
-
-
-
-// class BrowserWindow {
-
-//         this.content = this.createContent();
-
-//     }
-
-
-
-//         appendChildren(cross__wrapper, cross);
-//         //title
-//         const title = elementCreation('h2', "heading__secondary", "browserWindow__heading")
-//         title.textContent = 'Choose your flight';
-
-//         //flights container
-//         const subcontainer = elementCreation("div", "browserWindow__sub");
-
-//         //flights rendering
-
-//         for (let matchedFlight of this.matchedFlights) {
-//             const flightBox = new Flight(matchedFlight, this.depDateDay, this.depDateMonth, this.depDateYear, this.departure, this.arrival, this.personCount);
-//             appendChildren(subcontainer, flightBox.content);
-//             console.log(this.personCount);
-//         }
-//         //return flights Container
-//         // const subcontasinerRet = elementCreation("div", "browserWindow__sub")
-
-//         //appending 
-//         appendChildren(container, cross__wrapper, title, subcontainer);
-//         return container;
-//     }
-//     renderToTarget(target) {
-//         target.innerHTML = "";
-//         target.appendChild(this.content);
-//         target.classList.add("animated", "fadeIn");
-//     };
-// }
