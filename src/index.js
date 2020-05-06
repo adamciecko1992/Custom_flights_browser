@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import styles from "./style.scss";
 import animate from "animate.css";
 
