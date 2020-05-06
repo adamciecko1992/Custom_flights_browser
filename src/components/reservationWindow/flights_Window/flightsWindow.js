@@ -16,8 +16,11 @@ class FlightsWindow_model {
 
     getMatchedFilghts(filterEl) {
         this.matchedFlights = [];
-        fetchData("../../data/flights.json").then((data) => {
-            const allFlights = data.flights;
+        // fetchData("../../data/flights.json").then((data) => {
+        fetchData("https://api.github.com/repos/adamciecko1992/Custom_flights_browser/contents/docs/data/flights.json").then((data) => {
+            const parsedData = JSON.parse(atob(data.content))
+            console.log(parsedData);
+            const allFlights = parsedData.flights;
             const matched = allFlights.filter((flight) => {
                 return flight.destination.toUpperCase() === filterEl.arrivalPort.toUpperCase();
             })

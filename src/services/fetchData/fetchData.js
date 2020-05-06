@@ -1,5 +1,6 @@
+// require("")
 export async function fetchData(url) {
     const response = await fetch(url, {});
-    const json = await response.json();
-    return json
+    const data = await response.json();
+    return data
 }

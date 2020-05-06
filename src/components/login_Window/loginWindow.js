@@ -8,8 +8,8 @@ class LogIn_model {
         this.data = "";
     }
     async getData() {
-        await fetchData("../../data/user.json").then((data) => {
-            this.data = data;
+        await fetchData("https://api.github.com/repos/adamciecko1992/Custom_flights_browser/contents/docs/data/user.json").then((data) => {
+            this.data = JSON.parse(atob(data.content));
         });
     }
     setData(data) {
