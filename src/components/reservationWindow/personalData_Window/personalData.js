@@ -2,10 +2,13 @@ import template from "./personalData.html";
 import { PersonForm } from "./person_form/personForm";
 
 
+
 class PersonalData_model {
     constructor(data) {
         this.flightData = data;
         this.personsSpecificData = {};
+        this.forms = [];
+        this.allFormsValid = true;
     }
     sortPersonsData() {
         for (let i = 1; i <= this.flightData.chosenSeats.length; i++) {
@@ -16,6 +19,7 @@ class PersonalData_model {
             this.personsSpecificData[currPerson].luggage = (this.flightData.luggageSelections[i - 1].luggage);
         }
     }
+
 }
 
 class PersonalData_controller {
@@ -23,8 +27,27 @@ class PersonalData_controller {
         this.model = model;
         this.view = view;
         this.model.sortPersonsData(this.model.flightData);
-        this.view.createForms(this.model.personsSpecificData);
+        this.view.createForms(this.model.personsSpecificData, this.saveFormsToObj.bind(this));
+        this.view.bind_confirmClick(this.confirmationHandler.bind(this));
         this.view.appendMarkup(root_element);
+    }
+    confirmationHandler() {
+        // for (let form of this.model.forms) {
+        //     form.controller.model.formValidation(form.controller.view.inputs);
+        //     if (!form.controller.model.valid) {
+        //         this.model.allFormsValid = false;
+        //     } else {
+        //         this.model.allFormsValid = true;
+        //     }
+        // }
+        if (this.model.allFormsValid) {
+            window.eventBus.dispatchEvent("to_summary", [this.model.forms, this.model.flightData]);
+        } else {
+            alert("fill all inputs properly")
+        }
+    }
+    saveFormsToObj(form) {
+        this.model.forms.push(form);
     }
 }
 
@@ -32,11 +55,20 @@ class PersonalData_view {
     constructor() {
         this.markup = document.createRange().createContextualFragment(template);
         this.box = this.markup.querySelector("#formsBox");
+        this.button = this.markup.querySelector("#confirmData");
     }
-    createForms(personsObj) {
-        for (let i = 0; i < Object.keys(personsObj).length; i++) {
-            new PersonForm(this.box, [Object.keys(personsObj)[i], Object.values(personsObj)[i]]);
+    createForms(personObj, handler) {
+        for (let i = 0; i < Object.keys(personObj).length; i++) {
+            const personNumber = `${Object.keys(personObj)[i]}`;
+            const personReservChoices = Object.values(personObj)[i];
+            const form = new PersonForm(this.box, [personNumber, personReservChoices]);
+            handler(form);
         }
+    }
+    bind_confirmClick(handler) {
+        this.button.addEventListener("click", () => {
+            handler();
+        })
     }
     hide() {
         this.box.classList.remove("slideInRight", "delay-1s");

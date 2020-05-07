@@ -1,0 +1,4 @@
+.summaryWindow {
+    @include fillParent;
+    background-color: $color-primary-light;
+}

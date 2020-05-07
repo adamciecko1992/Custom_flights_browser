@@ -1,6 +1,6 @@
 import { bombardier_Svg, boeing_747_Svg, boeing_737_Svg } from "./assets/aircraftSvg";
 import template from "./seatsReservationWindow.html";
-import { eventBus } from "../../../scripts/app";
+
 
 //SOME MAJOR CHANGES TO DISPLAYING PERSON COUNT ON SEATS CLICK NEEDED !!!!
 class SeatsReservation_model {

@@ -3,6 +3,7 @@ import { FlightsWindow } from "./flights_Window/flightsWindow"
 import { LuggageWindow } from "./luggage_window/luggageWindow";
 import { SeatsReservation } from "./seats_reservation_window/seatsReservation";
 import { PersonalData } from "./personalData_Window/personalData";
+import { SummaryWindow } from "./summary_window/summaryWindow";
 import { wrapper } from "../../scripts/app";
 
 
@@ -64,6 +65,13 @@ class ReservationWindow_controller {
             this.model.seatsReservation.controller.view.hide();
             this.model.personalData = new PersonalData(this.view.wizardRoot, flightData);
         })
+        eventBus.addEventListener("to_summary", (event) => {
+            const finalData = event.detail;
+            this.view.windowHeading.innerHTML = "Summary";
+            this.model.personalData.controller.view.hide();
+            this.view.hideDots();
+            this.model.summaryWindow = new SummaryWindow(this.view.wizardRoot, finalData);
+        })
         this.view.appendMarkup(root_element);
     }
     killReservationProcess() {
@@ -84,12 +92,18 @@ class ReservationWindow_view {
         this.luggageDot = this.markup.querySelector("#luggageDot");
         this.seatsDot = this.markup.querySelector("#seatsDot");
         this.dataDot = this.markup.querySelector("#dataDot");
+        this.allDots = [this.flightsDot, this.luggageDot, this.seatsDot, this.dataDot];
         this.windowHeading = this.markup.querySelector("#window_heading");
         this.wizardRoot = this.markup.querySelector("#wizardRoot");
         this.quitIcon = this.markup.querySelector("#quitIcon");
     }
     appendMarkup(root_element) {
         root_element.appendChild(this.markup);
+    }
+    hideDots() {
+        for (let dot of this.allDots) {
+            dot.classList.add("hidden");
+        }
     }
     bind_quitClick(hanlder) {
         this.quitIcon.addEventListener("click", () => {
@@ -104,7 +118,6 @@ class ReservationWindow_view {
         flightsDot.classList.remove("selected");
         luggageDot.classList.remove("selected");
         seatsDot.classList.remove("selected");
-
     }
     showWindow() {
         this.markup.classList.toggle("hidden");

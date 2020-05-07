@@ -1,0 +1,10 @@
+.personCard {
+    width: 45%;
+    margin-bottom: $margin-small;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: $color-white;
+    box-shadow: $shadow;
+    border: $color-grey-dark 1px solid;
+}
