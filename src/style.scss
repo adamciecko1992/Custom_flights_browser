@@ -5,7 +5,6 @@
 @import "./styles/abstract/mediaqueries";
 //global styles components
 @import "./styles/components/box";
-@import "./styles/components/card";
 @import "./styles/components/btn";
 @import "./styles/components/dropdown";
 @import "./styles/components/input";
@@ -23,6 +22,7 @@
 @import "./components//reservationWindow/personalData_Window/personalData";
 @import "./components/reservationWindow/personalData_Window/person_form/personForm";
 @import "./components/reservationWindow/summary_window/summaryWindow";
+@import "./components/reservationWindow/summary_window/personCard/personCard";
 //Base
 @import "./styles/base/base";
 @import "./styles/base/typography";

@@ -1,24 +1,37 @@
 .flightsWindow {
-    @include fillParent;
-    @include flexCenter;
-    height: 80%;
-    flex-direction: column;
-    text-align: center;
+  @include fillParent;
+  flex-direction: column;
+  text-align: center;
+  background-color: $color-white;
+
+  &__sub {
+    width: 100%;
     background-color: $color-white;
+    &__header {
+      font-size: medium;
+      width: 100%;
+      display: flex;
+      background-color: $color-primary-dark;
+      color: white;
+      justify-content: space-evenly;
+      .cell {
+        padding: 1rem;
+        @include flexCenter;
+        position: relative;
+        width: 20%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 930px) {
+  .flightsWindow {
+    width: 100%;
     &__sub {
-        width: 100%;
-        margin: auto;
-        background-color: $color-white;
+      margin: auto;
     }
+  }
 }
 
-@media only screen and (max-width:930px) {
-    .flightsWindow {
-        width: 100%;
-        &__sub {
-            margin: auto;
-        }
-    }
+@media only screen and (max-width: 380px) {
 }
-
-@media only screen and (max-width:380px) {}

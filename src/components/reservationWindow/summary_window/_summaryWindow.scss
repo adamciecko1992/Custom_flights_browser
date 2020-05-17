@@ -1,4 +1,8 @@
 .summaryWindow {
+  @include fillParent;
+  @include flexCenter;
+  background-color: $color-white;
+  .subwindow {
     @include fillParent;
-    background-color: $color-primary-light;
+  }
 }

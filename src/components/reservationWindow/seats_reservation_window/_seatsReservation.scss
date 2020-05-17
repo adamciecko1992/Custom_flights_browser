@@ -1,24 +1,49 @@
 .planeWindow {
+  @include fillParent;
+  padding: 4rem;
+  background-color: $color-white;
+  .subWindow {
+    display: block;
     @include fillParent;
-    padding: 4rem;
-    background-color: $color-white;
-    .subWindow {
-        display: block;
-        @include fillParent;
+  }
+  &__heading {
+    text-align: center;
+    font-size: medium;
+    width: 100%;
+  }
+  .plane__wrapper {
+    position: relative;
+    overflow: scroll;
+    svg {
+      padding: 2rem;
+      width: 140%;
+      height: 140%;
     }
-    &__heading {
-        text-align: center;
-        width: 100%;
-    }
-    .plane__wrapper {
-        position: relative;
-        svg {
-            width: 100%;
-        }
-    }
+  }
+  .btn {
+    margin-left: 95%;
+  }
 }
 
 .active {
-    transition: all .2s;
-    fill: $color-primary-light;
+  transition: all 0.2s;
+  fill: $color-primary-light;
+}
+
+@media only screen and (max-width: 930px) {
+  .plane__wrapper {
+    position: relative;
+    background-color: orangered;
+    svg {
+      width: 200rem;
+    }
+  }
+}
+@media only screen and (max-width: 380px) {
+  .plane__wrapper {
+    position: relative;
+    svg {
+      width: 200vw;
+    }
+  }
 }

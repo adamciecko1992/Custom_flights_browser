@@ -2,7 +2,7 @@ $color-primary: rgb(23, 81, 241);
 $color-primary-light: rgb(74, 121, 250);
 $color-primary-dark: rgb(16, 63, 190);
 //
-$color-secondary:rgb(245, 169, 4);
+$color-secondary: rgb(245, 169, 4);
 $color-secondary-light: rgb(255, 195, 65);
 $color-secondary-dark: rgb(201, 139, 5);
 //
@@ -14,7 +14,7 @@ $color-white: rgb(255, 255, 255);
 $color-black: rgb(24, 24, 24);
 $color-grey: rgb(155, 155, 155);
 $color-grey-light: rgb(228, 228, 228);
-$color-grey-dark:rgb(104, 104, 104);
+$color-grey-dark: rgb(104, 104, 104);
 //
 $font-normal: 1.6rem;
 $font-big: 3rem;
@@ -26,3 +26,5 @@ $margin-medium: 5rem;
 $margin-small: 3rem;
 //
 $shadow: 0 5px 15px rgba($color-black, 0.2);
+//
+$bgfilter: linear-gradient(rgba(white, 0.8), rgba(grey, 0.8));

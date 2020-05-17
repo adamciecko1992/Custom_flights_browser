@@ -1,8 +1,14 @@
 .personalData_window {
-    width: 100%;
-    font-size: $font-small;
-    color: $color-grey-dark;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  width: 100%;
+  font-size: $font-small;
+  color: $color-grey-dark;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 12rem;
+  }
 }
