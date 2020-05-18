@@ -17,6 +17,7 @@ class FlightsWindow_model {
         fetchData("https://api.github.com/repos/adamciecko1992/Custom_flights_browser/contents/docs/data/flights.json").then((data) => {
             const parsedData = JSON.parse(atob(data.content))
             const allFlights = parsedData.flights;
+            console.log("FlightsWindow_model -> getMatchedFilghts -> allFlights", allFlights)
             const matched = allFlights.filter((flight) => {
                 return flight.destination.toUpperCase() === filterEl.arrivalPort.toUpperCase();
             })

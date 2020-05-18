@@ -6,6 +6,7 @@ class SummaryWindow_model {
     this.allForms = finalData[0];
     this.formsModels = [];
     this.flightData = finalData[1];
+    console.log(this.flightData);
     this.airfaresPrice = this.getAirfarePrice(
       this.flightData.airfareSelections
     )
@@ -19,7 +20,7 @@ class SummaryWindow_model {
     }
   }
   getAirfarePrice(selectionsArr) {
-  console.log("SummaryWindow_model -> getAirfarePrice -> selectionsArr", selectionsArr)
+  
       
     let sum = null;
     for (let selection of selectionsArr) {
