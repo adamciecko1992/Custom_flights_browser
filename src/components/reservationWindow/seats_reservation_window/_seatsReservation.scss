@@ -1,6 +1,6 @@
 .planeWindow {
   @include fillParent;
-  padding: 4rem;
+  padding: 1rem;
   background-color: $color-white;
   .subWindow {
     display: block;
@@ -14,14 +14,16 @@
   .plane__wrapper {
     position: relative;
     overflow: scroll;
+    top: 0;
     svg {
       padding: 2rem;
-      width: 140%;
-      height: 140%;
+      width: 100rem;
+      height: auto;
     }
   }
   .btn {
-    margin-left: 95%;
+    margin-left: 70%;
+    margin-bottom: 10%;
   }
 }
 
@@ -31,19 +33,27 @@
 }
 
 @media only screen and (max-width: 930px) {
+  .planeWindow{
+    .subWindow{
+      width: 100vw;
+    }
+  }
   .plane__wrapper {
+    width: 100vw;
     position: relative;
-    background-color: orangered;
-    svg {
-      width: 200rem;
+   
+    svg{
+      width: 140rem;
     }
   }
 }
 @media only screen and (max-width: 380px) {
   .plane__wrapper {
+    width: 100%;
     position: relative;
-    svg {
-      width: 200vw;
+    svg{
+      width: 160rem;
     }
+    
   }
 }

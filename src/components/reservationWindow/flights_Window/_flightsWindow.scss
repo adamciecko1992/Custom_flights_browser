@@ -2,11 +2,10 @@
   @include fillParent;
   flex-direction: column;
   text-align: center;
-  background-color: $color-white;
+  background-color: $color-grey-light;
 
   &__sub {
     width: 100%;
-    background-color: $color-white;
     &__header {
       font-size: medium;
       width: 100%;

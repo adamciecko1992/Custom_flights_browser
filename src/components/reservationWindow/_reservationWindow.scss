@@ -1,9 +1,10 @@
 .window {
   height: 80vh;
+  min-height: 70rem;
   width: 90vw;
   background-color: $color-white;
   position: fixed;
-  top: 10vh;
+  top: 3vh;
   z-index: 100;
   left: 50%;
   transform: translateX(-50%);
@@ -55,6 +56,7 @@
 @media only screen and (max-width: 930px) {
   .window {
     width: 100%;
+    min-height: 100%;
     .window_header {
       font-size: $font-small;
     }
@@ -64,6 +66,7 @@
 @media only screen and (max-width: 380px) {
   .window {
     width: 100%;
+    min-height: 100%;
     .window_header {
       font-size: $font-small;
     }
