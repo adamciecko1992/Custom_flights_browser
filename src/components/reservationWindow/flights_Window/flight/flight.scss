@@ -1,12 +1,11 @@
 .flight {
-  &:hover{
-  color: $color-primary-dark;
+  &:hover {
+    color: $color-primary-dark;
   }
   display: flex;
   width: 100%;
   height: 10rem;
   border-bottom: $color-grey-dark 1px solid;
-  border-radius: 10px;
   font-style: italic;
   cursor: pointer;
   transition: all 0.2s;
@@ -30,7 +29,6 @@
     }
   }
 }
-
 
 @media only screen and (max-width: 930px) {
   .flight {

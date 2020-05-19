@@ -1,8 +1,36 @@
 .summaryWindow {
   @include fillParent;
-  @include flexCenter;
   background-color: $color-white;
+  position: relative;
+  .output {
+    display: block;
+    .text {
+      margin-left: 3rem;
+      display: block;
+    }
+  }
   .subwindow {
     @include fillParent;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .btn {
+    position: absolute;
+    top: -8rem;
+    right: 2rem;
+  }
+}
+
+@media only screen and (max-width: 930px) {
+}
+
+@media only screen and (max-width: 380px) {
+  .summaryWindow {
+    display: block;
+    .btn {
+      position: absolute;
+      top: -8rem;
+      right: 2rem;
+    }
   }
 }

@@ -7,8 +7,14 @@
   justify-content: space-around;
   .btn {
     position: absolute;
-    
-    right: 1rem;
+    right: 2rem;
+    top: -8rem;
     width: 12rem;
   }
+}
+
+@media only screen and (max-width: 930px) {
+}
+
+@media only screen and (max-width: 380px) {
 }

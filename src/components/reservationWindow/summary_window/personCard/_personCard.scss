@@ -1,7 +1,7 @@
 .card {
   width: 30%;
   height: 80%;
-  margin: auto;
+  margin: 3rem 2rem;
   box-shadow: $shadow;
   background-color: $color-white;
   padding: 3rem;
@@ -9,5 +9,18 @@
   h3 {
     font-size: medium;
     font-weight: 600;
+  }
+}
+
+@media only screen and (max-width: 930px) {
+  .card {
+    width: 48%;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .card {
+    width: 100%;
+    height: 40%;
   }
 }
