@@ -24,7 +24,7 @@
 
 @media only screen and (max-width:930px) {
     .hero {
-        height: 30vh;
+        height: 50vh;
         .heading {
             padding: 1rem !important;
             &__primary {
@@ -46,7 +46,7 @@
 
 @media only screen and (max-width:380px) {
     .hero {
-        height: 30vh;
+        height: 60vh;
         .heading__primary {
             padding: 1rem !important;
             font-size: 8rem;
