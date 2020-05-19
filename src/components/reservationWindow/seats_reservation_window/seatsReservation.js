@@ -5,7 +5,6 @@ import {
 } from "./assets/aircraftSvg";
 import template from "./seatsReservationWindow.html";
 
-//SOME MAJOR CHANGES TO DISPLAYING PERSON COUNT ON SEATS CLICK NEEDED !!!!
 class SeatsReservation_model {
   constructor(flightData) {
     this.flightData = flightData;

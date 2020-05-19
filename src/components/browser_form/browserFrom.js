@@ -97,19 +97,20 @@ class BrowserForm_view {
   bind_searchClick(handler) {
     this.searhButton.addEventListener("click", (e) => {
       e.preventDefault();
-      // if (sessionStorage.loggedIn === "true") { //turned off for development
-      const formData = {
-        departurePort: this.departurePort.value,
-        arrivalPort: this.arrivalPort.value,
-        depDateDay: this.depDateDay.value,
-        depDateMonth: this.depDateMonth.value,
-        depDateYear: this.depDateYear.value,
-        personCount: this.personCount.value,
-      };
-      handler(formData);
-      // } else {
-      // alert("You have to be logged in to begin reservation process");
-      // }
+      if (sessionStorage.loggedIn === "true") {
+        //turned off for development
+        const formData = {
+          departurePort: this.departurePort.value,
+          arrivalPort: this.arrivalPort.value,
+          depDateDay: this.depDateDay.value,
+          depDateMonth: this.depDateMonth.value,
+          depDateYear: this.depDateYear.value,
+          personCount: this.personCount.value,
+        };
+        handler(formData);
+      } else {
+        alert("You have to be logged in to begin reservation process");
+      }
     });
   }
   bind_monthChange(handler) {
