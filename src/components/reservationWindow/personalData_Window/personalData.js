@@ -1,5 +1,6 @@
 import template from "./personalData.html";
 import { PersonForm } from "./person_form/personForm";
+import { Popup } from "../../popup/popup";
 
 class PersonalData_model {
   constructor(data) {
@@ -52,7 +53,11 @@ class PersonalData_controller {
         this.model.flightData,
       ]);
     } else {
-      alert("fill all inputs properly");
+      new Popup(
+        "Invalid input",
+        "No empty inputs are allowed, also no symbols are accepted in input fields, only letters and numbers"
+      );
+      return;
     }
   }
   saveFormsToObj(form) {

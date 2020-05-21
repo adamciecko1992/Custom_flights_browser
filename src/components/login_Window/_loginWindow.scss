@@ -1,48 +1,53 @@
 .loginbox {
-    position: fixed;
+  width: 40vw;
+  position: fixed;
+  left: 50%;
+  top: 10vh;
+  transform: translateX(-50%);
+  background-color: $color-white;
+  z-index: 1000;
+  .iconbox {
+    font-size: 3rem;
+    margin-left: 90%;
+    cursor: pointer;
+    z-index: 3;
+  }
+  .title {
+    margin-top: 1rem;
+    margin-bottom: $margin-medium;
+    text-align: center;
+  }
+  .logInForm {
     padding: 1rem;
-    left: 50%;
-    top: 10vh;
-    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
     background-color: $color-white;
-    z-index: 10;
-    .iconbox {
-        font-size: 3rem;
-        margin-left: 95%;
-        cursor: pointer;
-        z-index: 3;
+    input {
+      margin-top: 1rem;
     }
-    .title {
-        margin-top: $margin-small;
-        margin-bottom: $margin-medium;
-        text-align: center;
+  }
+  form {
+    align-items: center;
+    > *:not(label) {
+      margin-bottom: $margin-small;
     }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .loginbox {
+    width: 80vw;
+    height: 40vh;
+    top: 5vh;
     .logInForm {
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        background-color: $color-white;
     }
-    form {
-        align-items: center;
-        >*:not(label) {
-            margin-bottom: $margin-small;
-        }
-    }
+  }
 }
 
-@media only screen and (max-width:800px) {
-    .loginbox {
-        width: 70vw;
-        height: 40vh;
-        top: 5vh;
-    }
-}
-
-@media only screen and (max-width:380px) {
-    .loginbox {
-        width: 90vw;
-        height: 40vh;
-        top: 5vh;
-    }
+@media only screen and (max-width: 380px) {
+  .loginbox {
+    width: 90vw;
+    height: 40vh;
+    top: 5vh;
+  }
 }

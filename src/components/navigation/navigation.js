@@ -22,7 +22,7 @@ class Nav_view {
   }
   showMenuOnClick() {
     this.navToggle.addEventListener("click", () => {
-      window.addEventListener("resize", (event) => {
+      window.addEventListener("resize", () => {
         if (document.documentElement.clientWidth >= 960) {
           this.box.classList.remove("animated", "slideInLeft", "slideOutLeft");
         } else {

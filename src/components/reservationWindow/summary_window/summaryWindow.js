@@ -8,8 +8,8 @@ class SummaryWindow_model {
     this.flightData = finalData[1];
     this.airfaresPrice = this.getAirfarePrice(
       this.flightData.airfareSelections
-    )
-    this.luggagePrice = this.getLuggagePrice(this.flightData.luggageSelections)
+    );
+    this.luggagePrice = this.getLuggagePrice(this.flightData.luggageSelections);
     this.totalPrice = this.airfaresPrice + this.luggagePrice;
   }
   sortFormsData(formsObjArr) {
@@ -18,7 +18,7 @@ class SummaryWindow_model {
       this.formsModels.push(model);
     }
   }
-  getAirfarePrice(selectionsArr) {   
+  getAirfarePrice(selectionsArr) {
     let sum = null;
     for (let selection of selectionsArr) {
       switch (selection.airfare) {
@@ -34,22 +34,21 @@ class SummaryWindow_model {
     }
     return sum;
   }
-  getLuggagePrice(luggageArr){
+  getLuggagePrice(luggageArr) {
     let sum = null;
     for (let selection of luggageArr) {
       switch (selection.luggage) {
         case "small":
-          sum += 10
+          sum += 10;
           break;
         case "medium":
-          sum += 30
+          sum += 30;
           break;
         case "big":
-          sum += 60
-          
+          sum += 60;
       }
     }
-    return sum
+    return sum;
   }
 }
 
@@ -58,7 +57,11 @@ class SummaryWindow_controller {
     this.model = model;
     this.view = view;
     this.model.sortFormsData(this.model.allForms);
-    this.view.populatePriceFields(this.model.luggagePrice,this.model.airfaresPrice,this.model.totalPrice);
+    this.view.populatePriceFields(
+      this.model.luggagePrice,
+      this.model.airfaresPrice,
+      this.model.totalPrice
+    );
     this.view.renderPersonsData(this.model.formsModels);
     this.view.appendMarkup(root_element);
   }
@@ -72,13 +75,21 @@ class SummaryWindow_view {
     this.airfarePriceRoot = this.markup.querySelector("#airfarePriceRoot");
     this.luggagePriceRoot = this.markup.querySelector("#luggagePriceRoot");
     this.totalRoot = this.markup.querySelector("#totalRoot");
+    this.button = this.markup.querySelector("#toPayment");
+    this.bind_toPaymentClick();
   }
+  bind_toPaymentClick() {
+    this.button.addEventListener("click", () => {
+      window.location.assign("https://www.paypal.com/pl/home");
+    });
+  }
+
   renderPersonsData(arrOfModels) {
     for (let model of arrOfModels) {
       const personCard = new PersonCard(this.personsRoot, model);
     }
   }
-  populatePriceFields(luggagePrice,airfarePrice,total){
+  populatePriceFields(luggagePrice, airfarePrice, total) {
     this.airfarePriceRoot.innerHTML = `Price of tickets plus airfares: ${airfarePrice}$`;
     this.luggagePriceRoot.innerHTML = `Price of chosen luggage options: ${luggagePrice}$`;
     this.totalRoot.innerHTML = `Total price: ${total}$`;

@@ -1,5 +1,5 @@
 .formBox {
-  width: 30%;
+  width: 50%;
   margin-bottom: $margin-small;
   margin-top: $margin-small;
   padding: 1rem;
@@ -17,6 +17,10 @@
     padding: 1rem;
     border: solid 1px $color-grey;
     border-radius: 3px;
+    margin: 2rem;
+    input {
+      margin-top: 1rem;
+    }
   }
 }
 @media only screen and (max-width: 930px) {
@@ -27,6 +31,6 @@
 
 @media only screen and (max-width: 380px) {
   .formBox {
-    width: 80%;
+    width: 100%;
   }
 }

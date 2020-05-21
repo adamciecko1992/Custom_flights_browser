@@ -3,6 +3,7 @@ import { optionsCreation } from "../../services/optionsCreation/optionsCreation"
 import { convertMonth } from "../../services/convertMonth/convertMonth";
 import { monthToNum } from "../../services/monthToNum/monthToNum";
 import { calculateDays } from "../../services/calcDaysInMonth/calculateDays";
+import { Popup } from "../popup/popup";
 
 class BrowserForm_model {
   constructor() {
@@ -21,6 +22,7 @@ class BrowserForm_model {
       chosenMonthNum <= currentMonthNum &&
       chosenYear <= currentYear
     ) {
+      new Popup("Chosen date is in the past");
       return false;
     }
     if (
@@ -28,6 +30,7 @@ class BrowserForm_model {
       chosenMonthNum < currentMonthNum &&
       chosenYear <= currentYear
     ) {
+      new Popup("Chosen date is in the past");
       return false;
     }
     if (
@@ -35,9 +38,17 @@ class BrowserForm_model {
       chosenMonthNum >= currentMonthNum &&
       chosenDay > currentDay
     ) {
+      new Popup(
+        "Chosen date is too far away",
+        "There is no posiibility to make reservation on flight which is more than a year away from today"
+      );
       return false;
     }
     if (chosenYear > currentYear && chosenMonthNum > currentMonthNum) {
+      new Popup(
+        "Chosen date is too far away",
+        "There is no posiibility to make reservation on flight which is more than a year away from today"
+      );
       return false;
     }
     return true;
@@ -76,7 +87,6 @@ class BrowserForm_controller {
     this.view.fillDataFiled(newDate, true);
   }
   yearChangeHandler(newDate) {
-    console.log(newDate);
     this.view.fillDataFiled(newDate, true);
   }
 }
@@ -109,7 +119,7 @@ class BrowserForm_view {
         };
         handler(formData);
       } else {
-        alert("You have to be logged in to begin reservation process");
+        new Popup("Log In", "Please log in to begin the search process");
       }
     });
   }
@@ -141,7 +151,6 @@ class BrowserForm_view {
   }
 
   fillDataFiled(dateObj) {
-    console.log(dateObj);
     const selectedOptionIndex = dateObj.day - 1;
     this.depDateDay.innerHTML = "";
     optionsCreation(this.depDateDay, dateObj.days);

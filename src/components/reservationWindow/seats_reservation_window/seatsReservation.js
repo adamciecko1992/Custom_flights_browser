@@ -4,6 +4,7 @@ import {
   boeing_737_Svg,
 } from "./assets/aircraftSvg";
 import template from "./seatsReservationWindow.html";
+import { Popup } from "../../popup/popup";
 
 class SeatsReservation_model {
   constructor(flightData) {
@@ -102,6 +103,7 @@ class SeatsReservation_controller {
       Person: `${currentPerson}`,
       seat: `${clickedSeatNumber}`,
     });
+    this.view.currentPerson.style.color = "black";
   }
   handleSeatRemove(removedSeatNumber, currentPerson) {
     const seatIndex = this.model.chosenSeats.indexOf({
@@ -117,7 +119,10 @@ class SeatsReservation_controller {
       this.model.flightData.chosenSeats = this.model.chosenSeats;
       window.eventBus.dispatchEvent("seats_chosen", this.model.flightData);
     } else {
-      alert(`Not all passangers had chosen their seats`);
+      // new Popup(`Not all passangers had chosen their seats`);
+      this.view.currentPerson.innerHTML =
+        "Not all passangers have chosen their seats";
+      this.view.currentPerson.style.color = "red";
     }
   }
 }

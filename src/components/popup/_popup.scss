@@ -1,0 +1,32 @@
+.popup {
+  width: 50vw;
+  height: 40vh;
+  position: fixed;
+  top: 30vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $color-white;
+  @include flexCenter;
+  flex-wrap: wrap;
+  z-index: 1000;
+  border: 2px solid $color-grey-dark;
+  text-align: center;
+  .iconbox {
+    align-self: start;
+    margin-left: 80%;
+    font-size: 2rem;
+    padding: 2rem;
+  }
+  &__body {
+    padding: 3rem;
+    @include fillParent;
+    &__header {
+      //   text-align: center;
+      font-size: $font-medium;
+    }
+    &__content {
+      padding: 2rem;
+      font-size: 1.6rem;
+    }
+  }
+}

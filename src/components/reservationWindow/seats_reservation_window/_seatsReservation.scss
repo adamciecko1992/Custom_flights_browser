@@ -9,12 +9,13 @@
   }
   &__heading {
     text-align: center;
-    font-size: medium;
+    font-size: $font-big;
+    font-weight: 300;
     width: 100%;
   }
   .plane__wrapper {
     position: relative;
-    overflow: scroll;
+    overflow-x: scroll;
     top: 0;
     svg {
       padding: 2rem;
@@ -51,7 +52,7 @@
   .plane__wrapper {
     position: relative;
     svg {
-      width: 190rem;
+      width: 160rem;
     }
   }
 }

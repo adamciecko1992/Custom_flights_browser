@@ -1,4 +1,6 @@
 import template from "./personForm.html";
+import { checkForIllegalChars } from "../../../../services/InvalidCharactersValidation/invalidCharsValidation";
+import { Popup } from "../../../popup/popup";
 
 class PersonForm_model {
   constructor(personsObj) {
@@ -18,7 +20,7 @@ class PersonForm_model {
       if (!input.value) {
         this.valid = false;
         return;
-      } else if (input.value.match(/\W/)) {
+      } else if (!checkForIllegalChars(input.value)) {
         this.valid = false;
         return;
       } else if (input.value.length < 2) {
@@ -49,10 +51,7 @@ class PersonForm_controller {
       this.view.surname,
       this.surnameChange.bind(this)
     );
-    this.view.bind_inputToData_onChange(
-      this.view.birthDate,
-      this.birthDateChange.bind(this)
-    );
+
     this.view.bind_inputToData_onChange(
       this.view.adress,
       this.adressChange.bind(this)
@@ -69,9 +68,7 @@ class PersonForm_controller {
   surnameChange(newValue) {
     this.model.surname = newValue;
   }
-  birthDateChange(newValue) {
-    this.model.birthDate = newValue;
-  }
+
   adressChange(newValue) {
     this.model.adress = newValue;
   }
@@ -87,9 +84,9 @@ class PersonForm_view {
     this.inputs = this.markup.querySelectorAll("input");
     this.name = this.inputs[0];
     this.surname = this.inputs[1];
-    this.birthDate = this.inputs[2];
-    this.adress = this.inputs[3];
-    this.idNumber = this.inputs[4];
+
+    this.adress = this.inputs[2];
+    this.idNumber = this.inputs[3];
     this.personNumber = this.markup.querySelector("#personNumber");
     this.seatRoot = this.markup.querySelector("#chosenSeatRoot");
     this.luggageRoot = this.markup.querySelector("#luggageRoot");
@@ -102,9 +99,9 @@ class PersonForm_view {
   }
   populateMarkupWithData(number, seat, airfare, luggage) {
     this.personNumber.innerHTML = `${number}`;
-    this.seatRoot.innerHTML = `${seat}`;
-    this.luggageRoot.innerHTML = `${luggage}`;
-    this.airfareRoot.innerHTML = `${airfare}`;
+    this.seatRoot.innerHTML = `${seat.toUpperCase()}`;
+    this.luggageRoot.innerHTML = `${luggage.toUpperCase()}`;
+    this.airfareRoot.innerHTML = `${airfare.toUpperCase()}`;
   }
   appendMarkup(target) {
     target.appendChild(this.box);

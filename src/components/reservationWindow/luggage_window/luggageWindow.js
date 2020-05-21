@@ -33,6 +33,7 @@ class LuggageWindow_controller {
       this.model.persons,
       this.model.luggageTypes
     );
+    this.view.fillAirfaresPrices(this.model.flightData.price);
 
     this.view.bind_reservationButtonClicked(this.handleReservationBtn);
     this.view.appendMarkup(root_element);
@@ -62,6 +63,9 @@ class LuggageWindow_view {
     );
     this.luggageOptionsRoot = this.markup.querySelector("#personsLuggageRoot");
     this.airfareOptionsRoot = this.markup.querySelector("#personsAirfareRoot");
+    this.economicPrice = this.markup.querySelector("#economicPrice");
+    this.buisnessPrice = this.markup.querySelector("#buisnessPrice");
+    this.premiumPrice = this.markup.querySelector("#premiumPrice");
     this.luggageSelections = [];
     this.airfareSelections = [];
   }
@@ -81,6 +85,11 @@ class LuggageWindow_view {
     this.seatsReservationButton.addEventListener("click", () => {
       handler();
     });
+  }
+  fillAirfaresPrices(priceObj) {
+    this.economicPrice.innerHTML = priceObj.economic;
+    this.buisnessPrice.innerHTML = priceObj.buisness;
+    this.premiumPrice.innerHTML = priceObj.premium;
   }
 
   createChoiceBoxes(parent, num, optionsArr) {

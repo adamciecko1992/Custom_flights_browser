@@ -1,6 +1,6 @@
 .card {
-  width: 30%;
-  height: 80%;
+  width: 44%;
+  min-height: 80%;
   margin: 3rem 2rem;
   box-shadow: $shadow;
   background-color: $color-white;
@@ -9,6 +9,13 @@
   h3 {
     font-size: medium;
     font-weight: 600;
+  }
+  .outputBox {
+    padding: 1rem;
+
+    background-color: rgb(224, 224, 224);
+    margin: 2rem;
+    border: solid 1px $color-grey-light;
   }
 }
 

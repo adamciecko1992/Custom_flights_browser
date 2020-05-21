@@ -1,27 +1,19 @@
 .box {
-    width: 90%;
-    height: 40rem;
-    margin: 0 auto;
-    margin-top: $margin-medium;
-    box-shadow: $shadow;
-    display: block;
-    background-color: $color-grey;
-    &--offers {
-        margin-top: 30vh !important;
-    }
-    &--form {
-        width: 100%;
-        height: 80%;
-        margin: 0;
-    }
-    &--popup {
-        width: 40%;
-        height: 80vh;
-    }
-    &--hero {
-        background-image: url("./img/hero.jpg");
-        background-size: cover;
-        background-position: left;
-        height: 80vh;
-    }
+  width: 90%;
+  height: 40rem;
+  margin: 0 auto;
+  margin-top: $margin-medium;
+  box-shadow: $shadow;
+  display: block;
+  background-color: $color-grey;
+  &--offers {
+    margin-top: 30vh !important;
+  }
+
+  &--hero {
+    background-image: url("./img/hero.jpg");
+    background-size: cover;
+    background-position: left;
+    height: 80vh;
+  }
 }
