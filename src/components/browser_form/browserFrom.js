@@ -16,7 +16,6 @@ class BrowserForm_model {
         const currentMonthNum = monthToNum(this.today.month);
         const currentYear = this.today.year;
         const chosenMonthNum = monthToNum(chosenMonth);
-
         if (
             chosenDay < currentDay &&
             chosenMonthNum <= currentMonthNum &&
@@ -74,12 +73,9 @@ class BrowserForm_controller {
         this.view.fillDataFiled(this.model.today);
     }
     searchHandler(formData) {
+        const { depDateDay, depDateMonth, depDateYear } = this.view;
         if (
-            this.model.dateValidation(
-                this.view.depDateDay.value,
-                this.view.depDateMonth.value,
-                this.view.depDateYear.value
-            )
+            this.model.dateValidation(depDateDay.value, depDateMonth.value, depDateYear.value)
         ) {
             window.eventBus.dispatchEvent("search_triggered", formData);
         }
@@ -93,7 +89,7 @@ class BrowserForm_controller {
 }
 
 class BrowserForm_view {
-    constructor(target) {
+    constructor() {
         this.markup = document.createRange().createContextualFragment(template);
         this.box = this.markup.querySelector("#browserBox");
         this.departurePort = this.markup.getElementById("departure");
@@ -103,13 +99,13 @@ class BrowserForm_view {
         this.depDateYear = this.markup.getElementById("dateYear");
         this.personCount = this.markup.getElementById("personCount");
         this.searhButton = this.markup.querySelector("#searchButton");
+
     }
 
     bind_searchClick(handler) {
         this.searhButton.addEventListener("click", (e) => {
             e.preventDefault();
             if (sessionStorage.loggedIn === "true") {
-                //turned off for development
                 const formData = {
                     departurePort: this.departurePort.value,
                     arrivalPort: this.arrivalPort.value,
@@ -152,17 +148,19 @@ class BrowserForm_view {
     }
 
     fillDataFiled(dateObj) {
+        const { depDateMonth, depDateDay, depDateYear } = this;
         const selectedOptionIndex = dateObj.day - 1;
-        this.depDateDay.innerHTML = "";
+        depDateDay.innerHTML = "";
         optionsCreation(this.depDateDay, dateObj.days);
-        this.depDateMonth.value = dateObj.month;
-        this.depDateYear.value = dateObj.year;
+        depDateMonth.value = dateObj.month;
+        depDateYear.value = dateObj.year;
         const dayOptions = this.depDateDay.childNodes;
         dayOptions[selectedOptionIndex].selected = true;
     }
     appendMarkup(target) {
         target.appendChild(this.markup);
     }
+
 }
 
 export class BrowserForm {

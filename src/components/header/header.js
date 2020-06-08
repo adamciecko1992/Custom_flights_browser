@@ -23,9 +23,6 @@ class Header_view {
     constructor(parent) {
         this.markup = document.createRange().createContextualFragment(template);
         this.btn_logIn = this.markup.querySelector("#btn_LogIn")
-        this.btn_logIn = this.markup.querySelector("#btn_LogIn")
-
-
     }
     appendMarkup(target) {
         target.appendChild(this.markup);

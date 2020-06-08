@@ -4,10 +4,11 @@
     padding: 8px;
     border: 2px solid transparent;
     transition: all 0.4s;
-    &:focus{
-    border-bottom: 2px solid $color-primary;
+    &:focus {
+        border-bottom: 2px solid $color-primary;
+        outline: none;
     }
-    outline: none;
+    outline: $color-grey-light;
     width: 100%;
     &--radio {
         margin: 0 !important;
@@ -21,11 +22,11 @@
         border-bottom: 3px solid grey;
     }
     &--date {
-        border-radius: 5px;
+        border-radius: 2px;
         outline-color: $color-primary-light;
         margin: 2rem 0.3rem;
         &:focus {
-            outline-color: transparent;
+            outline-color: $color-grey-light;
         }
     }
 }

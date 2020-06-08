@@ -4,7 +4,8 @@ import {
     boeing_737_Svg,
 } from "./assets/aircraftSvg";
 import template from "./seatsReservationWindow.html";
-import { Popup } from "../../popup/popup";
+import { WindowViewParent } from '../Window_View_ParentClass/WindowViewParent';
+
 
 class SeatsReservation_model {
     constructor(flightData) {
@@ -46,7 +47,7 @@ class SeatsReservation_model {
             this.sortSeatsByRow(seatsArr);
         }
     }
-    sortSeatsInRow(seatsRows) {
+    sortSeatsInRow() {
         const rows = Object.values(this.seatsRows);
 
         function getH(seat) {
@@ -123,7 +124,7 @@ class SeatsReservation_controller {
             this.model.flightData.chosenSeats = this.model.chosenSeats;
             window.eventBus.dispatchEvent("seats_chosen", this.model.flightData);
         } else {
-            // new Popup(`Not all passangers had chosen their seats`);
+
             this.view.currentPerson.innerHTML =
                 "Not all passangers have chosen their seats";
             this.view.currentPerson.style.color = "red";
@@ -131,8 +132,9 @@ class SeatsReservation_controller {
     }
 }
 
-class SeatsReservation_view {
+class SeatsReservation_view extends WindowViewParent {
     constructor() {
+        super();
         this.markup = document.createRange().createContextualFragment(template);
         this.box = this.markup.querySelector("#seatsReservationWindow");
         this.svgRoot = this.markup.querySelector("#svgRoot");
@@ -202,17 +204,6 @@ class SeatsReservation_view {
         this.confirmSeatsBtn.addEventListener("click", () => {
             handler();
         });
-    }
-    hide() {
-        this.box.classList.remove("slideInRight", "delay-1s");
-        this.box.classList.add("animated", "slideOutLeft");
-        setTimeout(() => {
-            this.box.style.display = "none";
-        }, 1000);
-    }
-    appendMarkup(root_element) {
-        root_element.appendChild(this.box);
-        this.box.classList.add("animated", "slideInRight", "delay-1s");
     }
 }
 

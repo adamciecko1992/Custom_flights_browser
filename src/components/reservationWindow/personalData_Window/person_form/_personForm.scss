@@ -1,36 +1,37 @@
 .formBox {
-  width: 50%;
-  margin-bottom: $margin-small;
-  margin-top: $margin-small;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  background-color: $color-white;
-  box-shadow: $shadow;
-  border: $color-grey-dark 1px solid;
-  .form {
-    > * {
-      margin: 5px;
-    }
-  }
-  .formGroup {
+    width: 40%;
+    margin-bottom: $margin-small;
+    margin-top: $margin-small;
     padding: 1rem;
-    border: solid 1px $color-grey;
-    border-radius: 3px;
-    margin: 2rem;
-    input {
-      margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: $color-white;
+    box-shadow: $shadow;
+    border: $color-grey-dark 1px solid;
+    .form {
+        >* {
+            margin: 5px;
+        }
     }
-  }
+    .formGroup {
+        padding: 1rem;
+        border: solid 1px $color-grey;
+        border-radius: 3px;
+        margin: 2rem;
+        input {
+            margin-top: 1rem;
+        }
+    }
 }
+
 @media only screen and (max-width: 930px) {
-  .formBox {
-    width: 50%;
-  }
+    .formBox {
+        width: 80%;
+    }
 }
 
 @media only screen and (max-width: 380px) {
-  .formBox {
-    width: 100%;
-  }
+    .formBox {
+        width: 100%;
+    }
 }

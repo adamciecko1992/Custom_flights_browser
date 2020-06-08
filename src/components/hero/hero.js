@@ -3,7 +3,7 @@ import template from "./hero.html";
 
 class Hero_model {
     constructor() {
-        //maybe some caurosell data someday or img loading ?
+
     }
 }
 
