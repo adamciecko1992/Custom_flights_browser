@@ -31,7 +31,9 @@
         grid-column: 3/4;
         display: flex;
         justify-content: flex-end;
+        align-items: flex-end;
         border: none;
+        padding: 0;
     }
 }
 
@@ -46,6 +48,11 @@
     height: 4rem;
     min-height: 10rem;
     border: 1px solid $color-grey-light;
+}
+
+.warning_root {
+    color: red;
+    font-size: $font-medium;
 }
 
 @media only screen and (max-width:930px) {

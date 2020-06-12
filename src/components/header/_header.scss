@@ -4,8 +4,8 @@
     margin-top: 0;
     padding: 1rem;
     justify-content: space-between;
-    height: 12rem;
-    background-image: linear-gradient($color-primary-dark, $color-primary-light);
+    height: 15rem;
+    background-color: $color-primary-light;
     &__logo {
         width: 15rem;
         min-width: 100px;
@@ -17,21 +17,26 @@
         background-position: center;
     }
     &__login {
+        width: 60%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .iconsHolder {
         width: 20rem;
         display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        .poland {
-            background-image: url("./img/211-poland.svg");
-            background-size: cover;
-            background-color: transparent;
+        margin-right: 2rem;
+        .icon {
+            font-size: 3rem;
+            color: white;
+            margin-right: 3rem;
             cursor: pointer;
         }
-        .england {
-            background-image: url("./img/216-england.svg");
-            background-size: cover;
-            background-color: transparent;
-            cursor: pointer;
+    }
+    .buttonsHolder {
+        padding: 2rem;
+        button {
+            margin-right: 2rem;
         }
     }
 }
@@ -42,8 +47,26 @@
         height: 10rem;
         margin: 0;
         padding: 0;
+        &__logo {
+            width: 10rem;
+            min-width: 50px;
+            margin-left: 1rem;
+        }
         &__login {
+            width: 80%;
             margin-right: $margin-small;
+        }
+        .iconsHolder {
+            width: 10rem;
+            .icon {
+                font-size: 1.8rem;
+            }
+        }
+        .buttonsHolder {
+            padding: 0;
+            button {
+                margin-right: 0.5rem;
+            }
         }
     }
 }
@@ -51,8 +74,27 @@
 @media only screen and (max-width:380px) {
     .header {
         width: 100vw;
-        height: 8rem;
+        height: 10rem;
         margin: 0;
         padding: 0;
+        &__logo {
+            width: 5rem;
+        }
+        &__login {
+            width: 60rem;
+            margin-right: $margin-small;
+        }
+        .iconsHolder {
+            width: 10rem;
+            .icon {
+                font-size: 1.8rem;
+            }
+        }
+        .buttonsHolder {
+            padding: 0;
+            button {
+                margin-right: 0.5rem;
+            }
+        }
     }
 }

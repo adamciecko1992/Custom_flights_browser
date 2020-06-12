@@ -125,8 +125,13 @@ class ReservationWindow_controller {
                 this.switchWindow("Choose your sits", model.personalData, model.seatsReservation, view.seatsDot, view.dataDot, 'seats')
                 break;
             case "summary":
+                view.windowHeading.innerHTML = "Fill personall data";
                 view.showDots();
-                this.switchWindow("Fill personal data", model.summaryWindow, model.personalData, null, null, 'seats')
+                model.summaryWindow.controller.view.hideReversed();
+                model.personalData.controller.view.showOnBack();
+                model.activeWindow = "personalData";
+                model.summaryWindow = null;
+                // this.switchWindow("Fill personal data", model.summaryWindow, model.personalData, null, null, 'seats')
                 break;
         }
     }

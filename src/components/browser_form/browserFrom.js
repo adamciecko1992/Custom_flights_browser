@@ -11,7 +11,7 @@ class BrowserForm_model {
         this.getTodayObj();
         this.dateIsValid = true;
     }
-    dateValidation(chosenDay, chosenMonth, chosenYear) {
+    dateValidation(chosenDay, chosenMonth, chosenYear, warningRoot) {
         const currentDay = this.today.day;
         const currentMonthNum = monthToNum(this.today.month);
         const currentYear = this.today.year;
@@ -21,7 +21,7 @@ class BrowserForm_model {
             chosenMonthNum <= currentMonthNum &&
             chosenYear <= currentYear
         ) {
-            new Popup("Chosen date is in the past");
+            warningRoot.innerText = "Chosen date is in the past";
             return false;
         }
         if (
@@ -29,7 +29,8 @@ class BrowserForm_model {
             chosenMonthNum < currentMonthNum &&
             chosenYear <= currentYear
         ) {
-            new Popup("Chosen date is in the past");
+
+            warningRoot.innerText = "Chosen date is in the past";
             return false;
         }
         if (
@@ -37,17 +38,11 @@ class BrowserForm_model {
             chosenMonthNum >= currentMonthNum &&
             chosenDay > currentDay
         ) {
-            new Popup(
-                "Chosen date is too far away",
-                "There is no posiibility to make reservation on flight which is more than a year away from today"
-            );
+            warningRoot.innerText = "Chosen date is too far away";
             return false;
         }
         if (chosenYear > currentYear && chosenMonthNum > currentMonthNum) {
-            new Popup(
-                "Chosen date is too far away",
-                "There is no posiibility to make reservation on flight which is more than a year away from today"
-            );
+            warningRoot.innerText = "Chosen date is too far away";
             return false;
         }
         return true;
@@ -75,7 +70,7 @@ class BrowserForm_controller {
     searchHandler(formData) {
         const { depDateDay, depDateMonth, depDateYear } = this.view;
         if (
-            this.model.dateValidation(depDateDay.value, depDateMonth.value, depDateYear.value)
+            this.model.dateValidation(depDateDay.value, depDateMonth.value, depDateYear.value, this.view.warningRoot)
         ) {
             window.eventBus.dispatchEvent("search_triggered", formData);
         }
@@ -99,25 +94,25 @@ class BrowserForm_view {
         this.depDateYear = this.markup.getElementById("dateYear");
         this.personCount = this.markup.getElementById("personCount");
         this.searhButton = this.markup.querySelector("#searchButton");
-
+        this.warningRoot = this.markup.querySelector('.warning_root');
     }
 
     bind_searchClick(handler) {
         this.searhButton.addEventListener("click", (e) => {
             e.preventDefault();
-            if (sessionStorage.loggedIn === "true") {
-                const formData = {
-                    departurePort: this.departurePort.value,
-                    arrivalPort: this.arrivalPort.value,
-                    depDateDay: this.depDateDay.value,
-                    depDateMonth: this.depDateMonth.value,
-                    depDateYear: this.depDateYear.value,
-                    personCount: this.personCount.value,
-                };
-                handler(formData);
-            } else {
-                new Popup("Log In", "Please log in to begin the search process");
-            }
+            // if (sessionStorage.loggedIn === "true") {
+            const formData = {
+                departurePort: this.departurePort.value,
+                arrivalPort: this.arrivalPort.value,
+                depDateDay: this.depDateDay.value,
+                depDateMonth: this.depDateMonth.value,
+                depDateYear: this.depDateYear.value,
+                personCount: this.personCount.value,
+            };
+            handler(formData);
+            // } else {
+            //     new Popup("Log In", "Please log in to begin the search process");
+            // }
         });
     }
     bind_monthChange(handler) {
@@ -130,6 +125,7 @@ class BrowserForm_view {
                 days: null,
             };
             newDate.days = calculateDays(newDate);
+            this.warningRoot.innerText = "";
             handler(newDate);
         });
     }
@@ -142,6 +138,7 @@ class BrowserForm_view {
                 year: depDateYear.value,
                 days: null,
             };
+            this.warningRoot.innerText = "";
             newDate.days = calculateDays(newDate);
             handler(newDate);
         });

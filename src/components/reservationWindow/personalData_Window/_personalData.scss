@@ -1,20 +1,18 @@
 .personalData_window {
-  width: 100%;
-  font-size: $font-small;
-  color: $color-grey-dark;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  .btn {
-    position: absolute;
-    right: 2rem;
-    top: -8rem;
-    width: 12rem;
-  }
+    width: 100%;
+    font-size: $font-small;
+    color: $color-grey-dark;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .btn {
+        position: absolute;
+        right: 2rem;
+        top: -10rem;
+        width: 12rem;
+    }
 }
 
-@media only screen and (max-width: 930px) {
-}
+@media only screen and (max-width: 930px) {}
 
-@media only screen and (max-width: 380px) {
-}
+@media only screen and (max-width: 380px) {}
