@@ -100,19 +100,19 @@ class BrowserForm_view {
     bind_searchClick(handler) {
         this.searhButton.addEventListener("click", (e) => {
             e.preventDefault();
-            // if (sessionStorage.loggedIn === "true") {
-            const formData = {
-                departurePort: this.departurePort.value,
-                arrivalPort: this.arrivalPort.value,
-                depDateDay: this.depDateDay.value,
-                depDateMonth: this.depDateMonth.value,
-                depDateYear: this.depDateYear.value,
-                personCount: this.personCount.value,
-            };
-            handler(formData);
-            // } else {
-            //     new Popup("Log In", "Please log in to begin the search process");
-            // }
+            if (sessionStorage.loggedIn === "true") {
+                const formData = {
+                    departurePort: this.departurePort.value,
+                    arrivalPort: this.arrivalPort.value,
+                    depDateDay: this.depDateDay.value,
+                    depDateMonth: this.depDateMonth.value,
+                    depDateYear: this.depDateYear.value,
+                    personCount: this.personCount.value,
+                };
+                handler(formData);
+            } else {
+                new Popup("Log In", "Please log in to begin the search process");
+            }
         });
     }
     bind_monthChange(handler) {

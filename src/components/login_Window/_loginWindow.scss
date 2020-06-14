@@ -1,53 +1,54 @@
 .loginbox {
-  width: 40vw;
-  position: fixed;
-  left: 50%;
-  top: 10vh;
-  transform: translateX(-50%);
-  background-color: $color-white;
-  z-index: 1000;
-  .iconbox {
-    font-size: 3rem;
-    margin-left: 90%;
-    cursor: pointer;
-    z-index: 3;
-  }
-  .title {
-    margin-top: 1rem;
-    margin-bottom: $margin-medium;
-    text-align: center;
-  }
-  .logInForm {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
+    width: 40vw;
+    position: fixed;
+    left: 50%;
+    top: 10vh;
+    transform: translateX(-50%);
     background-color: $color-white;
-    input {
-      margin-top: 1rem;
+    z-index: 1000;
+    .iconbox {
+        font-size: 3rem;
+        margin-left: 90%;
+        cursor: pointer;
+        z-index: 3;
     }
-  }
-  form {
-    align-items: center;
-    > *:not(label) {
-      margin-bottom: $margin-small;
+    .title {
+        margin-top: 1rem;
+        margin-bottom: $margin-medium;
+        text-align: center;
     }
-  }
+    .logInForm {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        background-color: $color-white;
+        input {
+            margin-top: 1rem;
+        }
+    }
+    form {
+        align-items: center;
+        >*:not(label) {
+            margin-bottom: $margin-small;
+        }
+    }
+    .warningRoot {
+        font-size: 1.6rem;
+    }
 }
 
 @media only screen and (max-width: 800px) {
-  .loginbox {
-    width: 80vw;
-    height: 40vh;
-    top: 5vh;
-    .logInForm {
+    .loginbox {
+        width: 80vw;
+        height: 40vh;
+        top: 5vh;
     }
-  }
 }
 
 @media only screen and (max-width: 380px) {
-  .loginbox {
-    width: 90vw;
-    height: 40vh;
-    top: 5vh;
-  }
+    .loginbox {
+        width: 90vw;
+        height: 40vh;
+        top: 5vh;
+    }
 }
