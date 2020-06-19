@@ -80,17 +80,17 @@ class PersonForm_controller {
 class PersonForm_view {
     constructor() {
         this.markup = document.createRange().createContextualFragment(template);
-        this.box = this.markup.querySelector("#formBox");
+        this.box = this.markup.querySelector(".formBox");
         this.inputs = this.markup.querySelectorAll("input");
         this.name = this.inputs[0];
         this.surname = this.inputs[1];
 
         this.adress = this.inputs[2];
         this.idNumber = this.inputs[3];
-        this.personNumber = this.markup.querySelector("#personNumber");
-        this.seatRoot = this.markup.querySelector("#chosenSeatRoot");
-        this.luggageRoot = this.markup.querySelector("#luggageRoot");
-        this.airfareRoot = this.markup.querySelector("#airfareRoot");
+        this.personNumber = this.markup.querySelector(".personNumber");
+        this.seatRoot = this.markup.querySelector(".chosenSeatRoot");
+        this.luggageRoot = this.markup.querySelector(".luggageRoot");
+        this.airfareRoot = this.markup.querySelector(".airfareRoot");
     }
     bind_inputToData_onChange(entry, handler) {
         entry.addEventListener("input", () => {

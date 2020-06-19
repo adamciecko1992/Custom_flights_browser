@@ -36,12 +36,12 @@ class Flight_view {
     constructor(root_element) {
         this.markup = document.createRange().createContextualFragment(template);
         this.parent = root_element;
-        this.box = this.markup.querySelector("#flight");
-        this.flightDate = this.markup.querySelector("#flightDate");
-        this.departureHour = this.markup.querySelector("#departureHour");
-        this.departureTown = this.markup.querySelector("#departureTown");
-        this.arrivalTown = this.markup.querySelector("#arrivalTown");
-        this.arrivalHour = this.markup.querySelector("#arrivalHour");
+        this.box = this.markup.querySelector(".flight");
+        this.flightDate = this.markup.querySelector(".flightDate");
+        this.departureHour = this.markup.querySelector(".departureHour");
+        this.departureTown = this.markup.querySelector(".departureTown");
+        this.arrivalTown = this.markup.querySelector(".arrivalTown");
+        this.arrivalHour = this.markup.querySelector(".arrivalHour");
         this.appendMarkup(root_element);
         this.populateElements = (flightData) => {
             this.flightDate.innerText = flightData.date;
