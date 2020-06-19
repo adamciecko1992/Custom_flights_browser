@@ -42,7 +42,7 @@ class LogIn_controller {
                     this.model.startLogOutTimer();
                     this.view.hideAndShow();
                 } else {
-                    this.view.warningRoot.innerHTML = 'Invalid input'
+                    this.view.warningRoot.innerHTML = 'Invalid username or password'
                 }
             }
         };

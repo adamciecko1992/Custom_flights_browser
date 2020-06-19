@@ -61,7 +61,6 @@ class SeatsReservation_model {
                         ) -
                         parseInt(b.attributes[0].value.slice(4, getH(b.attributes[0].value)))
                 });
-
         }
     }
     addNumberToSeats() {
@@ -124,7 +123,6 @@ class SeatsReservation_controller {
             this.model.flightData.chosenSeats = this.model.chosenSeats;
             window.eventBus.dispatchEvent("seats_chosen", this.model.flightData);
         } else {
-
             this.view.currentPerson.innerHTML =
                 "Not all passangers have chosen their seats";
             this.view.currentPerson.style.color = "red";
