@@ -1,49 +1,49 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 :root {
-    font-family: "PT Sans", sans-serif;
-    font-size: 63.5%;
+  font-family: "PT Sans", sans-serif;
+  font-size: 63.5%;
 }
 
 .wrapper {
-    width: 90%;
-    margin: 0 auto;
-    position: relative;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
 }
 
 body {
-    background-color: $color-grey-light;
-    position: relative;
-    min-height: 200vh;
+  background-color: $color-grey-light;
+  position: relative;
+  min-height: 200vh;
 }
 
-@media only screen and (max-width: 930px) {
-    .wrapper {
-        width: 100vw;
-        margin: 0;
-        background-color: $color-white;
-    }
-     :root {
-        font-size: 60%;
-    }
+@media only screen and (max-width: 960px) {
+  .wrapper {
+    width: 100vw;
+    margin: 0;
+    background-color: $color-white;
+  }
+  :root {
+    font-size: 60%;
+  }
 }
 
 @media only screen and (max-width: 380px) {
-    .wrapper {
-        width: 100vw;
-        margin: 0;
-    }
-     :root {
-        font-size: 40%;
-    }
+  .wrapper {
+    width: 100vw;
+    margin: 0;
+  }
+  :root {
+    font-size: 40%;
+  }
 }
