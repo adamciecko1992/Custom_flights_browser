@@ -1,66 +1,67 @@
 .hero {
-    background-image: linear-gradient(rgba(grey, 0.4), rgba(black, 0.3)), url("./img/hero2.jpg");
-    background-size: cover;
-    background-position: left;
-    height: 60rem;
-    width: 100%;
-    .heading {
-        &__primary {
-            font-size: 12rem;
-            color: $color-white;
-            margin-left: $margin-small;
-        }
-        &__secondary {
-            font-size: 8rem;
-            color: $color-white;
-            font-weight: 100;
-            font-style: italic;
-            font-family: Lato, sans-serif;
-            margin-left: $margin-big;
-        }
+  background-image: linear-gradient(rgba(grey, 0.4), rgba(black, 0.3)),
+    url("./img/hero.jpg");
+  background-size: cover;
+  background-position: left;
+  height: 60rem;
+  width: 100%;
+  .heading {
+    &__primary {
+      font-size: 12rem;
+      color: $color-white;
+      margin-left: $margin-small;
     }
+    &__secondary {
+      font-size: 8rem;
+      color: $color-white;
+      font-weight: 100;
+      font-style: italic;
+      font-family: Lato, sans-serif;
+      margin-left: $margin-big;
+    }
+  }
 }
 
 @media only screen and (max-width: 930px) {
-    .hero {
-        height: 30vh;
-        min-height: 25rem;
-        .heading {
-            padding: 1rem !important;
-            &__primary {
-                font-size: 10rem;
-                color: $color-white;
-                margin-left: $margin-small;
-            }
-            &__secondary {
-                font-size: 6rem;
-                color: $color-white;
-                font-weight: 100;
-                font-style: italic;
-                font-family: Lato, sans-serif;
-                margin-left: $margin-small;
-            }
-        }
+  .hero {
+    height: 30vh;
+    min-height: 25rem;
+    .heading {
+      padding: 1rem !important;
+      &__primary {
+        font-size: 10rem;
+        color: $color-white;
+        margin-left: $margin-small;
+      }
+      &__secondary {
+        font-size: 6rem;
+        color: $color-white;
+        font-weight: 100;
+        font-style: italic;
+        font-family: Lato, sans-serif;
+        margin-left: $margin-small;
+      }
     }
+  }
 }
 
 @media only screen and (max-width: 380px) {
-    .hero {
-        height: 20vh;
-        min-height: 25rem;
-        .heading__primary {
-            padding: 1rem !important;
-            font-size: 8rem;
-            color: $color-white;
-            margin-left: $margin-small;
-        }
-        .heading__secondary {
-            font-size: 5rem;
-            color: $color-white;
-            font-weight: 100;
-            font-style: italic;
-            font-family: Lato, sans-serif;
-            margin-left: $margin-small;
-        }
+  .hero {
+    height: 20vh;
+    min-height: 25rem;
+    .heading__primary {
+      padding: 1rem !important;
+      font-size: 8rem;
+      color: $color-white;
+      margin-left: $margin-small;
     }
+    .heading__secondary {
+      font-size: 5rem;
+      color: $color-white;
+      font-weight: 100;
+      font-style: italic;
+      font-family: Lato, sans-serif;
+      margin-left: $margin-small;
+    }
+  }
 }
